@@ -1,0 +1,42 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+
+
+{% block content %}
+
+<section class="grid_9">
+    <div class="block-border">
+        <form class="block-content form" id="table_form" method="post" action="{{ path('ei_administration_Repondre') }}">
+            <h1>Repondre message</h1>
+            <fieldset>
+
+
+
+                <p>
+                    <label for="A">A :</label>
+                    <input type="text" name="A" id="A" >
+                </p>
+
+                <p>
+                    <label for="objet">Objet :</label>
+                    <!--<input type="text" style="background-color:; padding-left:10px; font-family:'nevis Bold', Arial; font-size:35px; color:#FFF;" name="objet" id="objet">-->
+                    <input  type="text" name="Objet" id="Objet">
+                </p>
+
+                <p>
+                    <label for="message">Message :</label><br/>
+                    <textarea id="editable" name="message" id="message" cols="100" rows="15"></textarea>
+                </p>
+
+
+            </fieldset>
+
+           
+            <input type="submit" name="submit" id="submit" value="Envoyer">
+        </form>
+
+    </div>
+
+
+</section> 
+
+  {% endblock %}

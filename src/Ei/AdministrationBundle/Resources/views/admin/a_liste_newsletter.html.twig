@@ -1,0 +1,148 @@
+{% extends "EiAdministrationBundle::Master-Base-admin.html.twig" %}
+{% block title %}
+     {{ parent() }}  | Lister Newslettres
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+
+ <section class="grid_9">		
+			<div class="fieldset with-legend grey-bg ">
+				<div class="legend">Newsletter</div>
+					
+			
+			
+			
+			
+			<div class="block-border" id="status-bar">
+			<a href="javascript:void(0)" class="button" title="Ajouter"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/plus-circle.png') }}" width="16" height="16"> <strong>Nouveau</strong></a>
+		
+	<a href="javascript:void(0)" class="button" title="abonnés"><strong>Liste des abonnés</strong></a>
+		
+		
+			
+			<span class="float-left">Tous les newsletter</span>
+	
+	</div>
+	
+	
+	<br><br>
+			
+			<div class=""><form class="block-content form" id="table_form" method="post" action="#">
+				
+				
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li><a href="javascript:void(0)" title="Previous"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png') }}" width="16" height="16"> Prev</a></li>
+						<li><a href="javascript:void(0)" title="Page 1"><b>1</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 2" class="current"><b>2</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 3"><b>3</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 4"><b>4</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 5"><b>5</b></a></li>
+						<li><a href="javascript:void(0)" title="Next">Next <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png') }}" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li><a href="javascript:void(0)"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-circle.png') }}" width="16" height="16"></a></li>
+					</ul>
+					
+				</div>
+			
+				<div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				
+					<thead>
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<th scope="col">
+								<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+							Libellé</th>
+							<th scope="col">
+								
+								Contenu
+							</th>
+							<th scope="col">Nombre de clic</th>
+							<th scope="col">Date
+								<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+							</th>
+							<th scope="col" class="table-actions">Actions</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<td>Publié</td>
+							<td>Lorem ipsum sit amet</td>
+							<td> ma  description</td>
+						
+							<td>02-05-2010</td>
+							
+							<td class="table-actions">
+								<a href="javascript:void(0)" title="Afficher" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png') }}" width="16" height="16"></a>
+								</td>
+						</tr>
+						
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<td>Publié</td>
+							<td>Lorem ipsum sit amet</td>
+							<td> ma  description</td>
+							
+							<td>02-05-2010</td>
+							
+							<td class="table-actions">
+								<a href="javascript:void(0)" title="Afficher" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png') }}" width="16" height="16"></a>
+							</td>
+						</tr>
+						
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<td>Désactivé</td>
+							<td>Lorem ipsum sit amet</td>
+							<td> ma  description</td>
+							
+							<td>02-05-2010</td>
+							
+							<td class="table-actions">
+								<a href="javascript:void(0)" title="Afficher" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png') }}" width="16" height="16"></a>
+								</td>
+						</tr>
+						
+						
+						
+					</tbody>
+				
+				</table></div>
+				
+				<ul class="message no-margin">
+					<li>Results 1 - 5 out of 23</li>
+				</ul>
+				
+			</form></div>
+		
+				
+				
+				
+				
+				
+				
+			
+			</div>
+				
+		
+		</section>   
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

@@ -1,0 +1,114 @@
+#/list_contact:
+#    pattern:  /user/liste_contact
+##    defaults: { _controller: EieinstitutBundle:Usager:liste_contact }
+
+#supprimer_contact:
+#    pattern:  /user/supprimer_contact/{contact}
+#    defaults: { _controller: EieinstitutBundle:Usager:supprimer_contact }
+#demande_contact:
+  #  pattern:  /demande_contact
+  #  defaults: { _controller: EieinstitutBundle:Default:demande_contact}
+#liste_contact:
+  #  pattern:  /liste_contact
+  #  defaults: { _controller: EieinstitutBundle:Default:liste_contact}
+
+# Ressources
+detail_ressource:
+    pattern:  /detail_ressource/{fiche}
+    defaults: { _controller: EieinstitutBundle:Default:detail_ressource} 
+
+recherche_ressource:
+    pattern:  /recherche_ressource
+    defaults: { _controller: EieinstitutBundle:Default:recherche_ressource} 
+
+Ressources:
+    pattern:  /ressources/{page}
+    defaults: { _controller: EieinstitutBundle:ressources:ressources,page:1 }
+
+mes_ressources:
+    pattern:  /mes_ressources/{page}
+    defaults: { _controller: EieinstitutBundle:ressources:mes_ressources,page:1 }
+
+action_fiche:
+    pattern:  /action_fiche
+    defaults: { _controller: EieinstitutBundle:Default:action_fiche}
+
+Ressources_Ajouter:
+    pattern:  /user/ajouter_ressource
+    defaults: { _controller: EieinstitutBundle:Default:ajouter_ressource }
+
+detail_ressource:
+    pattern:  /detail_ressource/{fiche}
+    defaults: { _controller: EieinstitutBundle:Default:detail_ressource}
+
+preconiser_ressource:
+    pattern:  /user/preconiser_ressource/{fiche}
+    defaults: { _controller: EieinstitutBundle:Default:preconiser_ressource}
+    
+# Contact ***********************************
+list_contact:
+    pattern:  /user/liste_contact
+    defaults: { _controller: EieinstitutBundle:Usager:liste_contact }
+
+supprimer_contact:
+    pattern:  /user/supprimer_contact/
+    defaults: { _controller: EieinstitutBundle:Usager:supprimer_contact }
+    
+demande_contact:
+    pattern:  /user/demande_contact
+    defaults: { _controller: EieinstitutBundle:Usager:demande_contact }
+
+ajouter_contact:
+    pattern:  /user/ajouter_contact
+    defaults: { _controller: EieinstitutBundle:Usager:ajouter_contact }
+    
+profile_contact:
+    pattern:  /user/profile_contact/{profile}
+    defaults: { _controller: EieinstitutBundle:Usager:profile_contact }
+# End Contact ***********************************
+
+mon_compte:
+    pattern:  /mon_compte
+    defaults: { _controller: EieinstitutBundle:Default:mon_compte}
+profil:
+    pattern:  /profil
+    defaults: { _controller: EieinstitutBundle:Default:profil}
+# Agenda
+_agenda:
+    pattern:  /user/agenda
+    defaults: { _controller: EieinstitutBundle:Usager:agenda }
+
+Navigation_agenda:
+    pattern:  /user/agenda/{annee}/{mois}
+    defaults: { _controller: EieinstitutBundle:Usager:navigation_agenda }
+
+Ajouter_evenement:
+    pattern:  /user/agenda/ajouter_evenement
+    defaults: { _controller: EieinstitutBundle:Usager:ajouter_evenement }
+
+recherche_ressource:
+    pattern:  /recherche_ressource
+    defaults: { _controller: EieinstitutBundle:Default:recherche_ressource} 
+nouveau_message:
+    pattern:  /nouveau_message
+    defaults: { _controller: EieinstitutBundle:Default:nouveau_message} 
+messages_envoyes:
+    pattern:  /messages_envoyes
+    defaults: { _controller: EieinstitutBundle:Default:messages_envoyes} 
+messages_recus:
+    pattern:  /messages_recus
+    defaults: { _controller: EieinstitutBundle:Default:messages_recus} 
+brouillon:
+    pattern:  /brouillon
+    defaults: { _controller: EieinstitutBundle:Default:brouillon} 	
+
+# Actualités
+
+detail_actualite:
+    pattern:  /actualite/detail_actualite/{actualite}
+    defaults: { _controller: EieinstitutBundle:Default:detail_actualite}
+    
+actualite:
+    pattern:  /actualite
+    defaults: { _controller: EieinstitutBundle:Default:actualite}
+

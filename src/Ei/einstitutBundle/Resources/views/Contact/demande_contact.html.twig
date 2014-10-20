@@ -1,0 +1,142 @@
+
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Ajout contact
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+
+
+{% block content %}
+
+
+    <section class="grid_9">
+        <div class="block-border">
+            <div class="block-content">
+
+
+                <div class="block-controls">
+                    <h1>Rechercher</h1>  <br><br>
+
+                </div>
+                <form class="form" id="tab-stats" method="post" action="{{ path('demande_contact') }}">
+                    <fieldset class="grey-bg">
+
+                        <span class="label required">
+                            Mots Clés
+
+                        </span>
+                        <input id="complex-fr-subtitle" class="full-width" type="text" value="{{ mots }}" name="txt_nom"></input> <br><br>
+
+                        <div class="float-right"><br>
+                            <button type="submit" name="search"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png')}}" width="16" height="16"> Rechercher</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-------------------------------
+                debut resultat recherche
+                
+                ----------------------------------->
+
+
+
+                <ul class="extended-list no-margin icon-user">
+                {% for User in Users %} 
+                
+                    {% if (app.user.id != User.id) %}
+                        
+                        <li>
+                            <a href="#">
+                                <span class="icon"></span>   </a>
+                        {{ User.prenom }}{{ User.nom  }}<br>
+                        <small>email</small><br>
+                        <small>Etudiant </small>
+                        
+                      {% for Contact in Contacts %} 
+                        
+                            {% set id1 = Contact.contact_user2.id %}
+                            {% set id3 = Contact.contact_user1.id %}
+                            {% set id2 = User.id %}
+                           
+
+                            {% if  id2==id1 %}  
+                                <ul style="opacity: 0;" class="mini-menu">
+                                        <li><a href="#" title="Déjà ami(e) avec {{ User.nom }}" name="ajout"> <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png')}}" height="16" width="16"></a></li>
+                                        <li><a href="#" title="Envoyer mail"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/mail.png')}}" height="16" width="16"></a></li>
+
+                               </ul>
+
+                            
+                                
+
+                             {% elseif id2!=id1 %}
+                                <ul style="opacity: 0;" class="mini-menu" id="Action_{{ id2 }}">
+
+                                     <li><a  onclick="DemanderContact({{ User.id }})" title="Ajouter d'id {{ User.nom }}" name="_ajout"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/plus-circle.png')}}" height="16" width="16"></a></li>
+                                     <li><a href="#" title="Envoyer mail"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/mail.png')}}" height="16" width="16"></a></li>
+
+                                    </ul>
+                                
+                           {% endif %}
+                            
+                  {% endfor %}
+                            
+                    </li>
+                {% endif %}
+
+                  {% endfor %}
+                </ul>
+                <ul class="controls-buttons">
+                    <li><a href="#" title="Précédent"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png')}}" width="16" height="16"> Precedent</a></li>
+                    <li><a href="#" title="Page 1"><b>1</b></a></li>
+                    <li><a href="#" title="Page 2" class="current"><b>2</b></a></li>
+                    <li><a href="#" title="Page 3"><b>3</b></a></li>
+                    <li><a href="#" title="Page 4"><b>4</b></a></li>
+                    <li><a href="#" title="Page 5"><b>5</b></a></li>
+                    <li><a href="#" title="suivant">Suivant <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png')}}" width="16" height="16"></a></li>
+
+                </ul>
+                <div class="clear"></div>
+                <!--------------------
+
+fin resultat recherche
+
+---------------------->
+
+            </div>
+        </div>			
+    </section>
+
+{% endblock %}
+     
+     
+     
+{% block javascripts_Bottom %}
+    <script>
+    
+    function DemanderContact(id)
+    {
+        console.log("Test",id );
+        $.post(
+               "{{ path('ajouter_contact') }}",
+                {id:id},
+                    function(result){
+                        
+                        console.log("Nice")
+                      
+                        $("#Action_"+id).remove();
+                    });
+    }
+  
+    
+    </script>
+{% endblock %}

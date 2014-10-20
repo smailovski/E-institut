@@ -1,0 +1,76 @@
+eieinstitut_homepage:
+    pattern:  /
+    defaults: { _controller: EieinstitutBundle:Default:index }
+
+Espace_Personnel:
+    pattern:  /user/espace_personnel
+    defaults: { _controller: EieinstitutBundle:Default:espace_Personnel }
+
+
+Forum:
+    pattern:  /forum
+    defaults: { _controller: EieinstitutBundle:Default:forum }
+
+Annuaire:
+    pattern:  /user/annuaire
+    defaults: { _controller: EieinstitutBundle:Default:annuaire }
+
+Recus:
+    pattern:  /messages_recus
+    defaults: { _controller: EieinstitutBundle:Default:messages_recus}
+
+Envoyes:
+    pattern:  /messages_envoyes
+    defaults: { _controller: EieinstitutBundle:Default:messages_envoyes}
+
+supprimer_messages:
+    pattern:  /supprimer_messages
+    defaults: { _controller: EieinstitutBundle:Default:supprimer_messages}
+
+supprimer_messages1:
+    pattern:  /supprimer_messages1/{message}
+    defaults: { _controller: EieinstitutBundle:Default:supprimer_messages1}
+
+
+details_message:
+    pattern:  /details_message/{message}
+    defaults: { _controller: EieinstitutBundle:Default:details_message }
+
+details_message1:
+    pattern:  /details_message1/{message}
+    defaults: { _controller: EieinstitutBundle:Default:details_message1 }
+
+Nouveau_message:
+    pattern:  /nouveau_message
+    defaults: { _controller: EieinstitutBundle:Default:nouveau_message }
+
+Repondre:
+    pattern:  /repondre_message
+    defaults: { _controller: EieinstitutBundle:Default:repondre_message }
+
+# Ressources
+
+
+
+################################################################################
+
+
+# footer routes
+Footer_:
+    resource: "@EieinstitutBundle/Resources/config/routing/routing_footer.yml"
+
+# Admin routes
+Admin_:
+    resource: "@EieinstitutBundle/Resources/config/routing/routing_admin.yml"
+
+# Usager routes
+Usager_:
+    resource: "@EieinstitutBundle/Resources/config/routing/routing_usager.yml"
+
+# Istitution routes
+Istitution_:
+    resource: "@EieinstitutBundle/Resources/config/routing/routing_istitution.yml"
+
+# Security routes
+Security_:
+    resource: "@EieinstitutBundle/Resources/config/routing/routing_security.yml"

@@ -1,0 +1,172 @@
+	<!-- Header -->
+	<a href="{{ path('eieinstitut_homepage')}}"><img style="float:left;padding-left:10%;padding-top:5px;" src="{{ asset('bundles/eieinstitut/images/logo_s2.png')}}" width="231" height="91"></a>
+	<!-- Server status -->
+	<header>
+            
+		<div class="container_12">
+			<div class="server-info"><a href="https://www.facebook.com/pages/E-Institut-Espace-Num%C3%A9rique-Acad%C3%A9mique-Unifi%C3%A9-ENAU/212028762219064" target="_blank"><img src="{{ asset('bundles/eieinstitut/images/icons/social/fb.png')}}" width="24" height="24"></a></div>
+			<div class="server-info"><a href="https://twitter.com/EInstitut"target="_blank"><img src="{{ asset('bundles/eieinstitut/images/icons/social/tw.png')}}" width="24" height="24"></a></div>
+			<div class="server-info"><a href="http://www.linkedin.com/pub/e-institut/45/a43/168" target="_blank"><img src="{{ asset('bundles/eieinstitut/images/icons/social/ln.png')}}" width="24" height="24"></a> </div>
+			<div class="server-info"><a href="http://www.youtube.com/channel/UCNJWFhvZoYW_Qx-GoHHRBcw" target="_blank"><img src="{{ asset('bundles/eieinstitut/images/icons/social/yt.png')}}" width="24" height="24"></a></div>
+			<div class="server-info"><a href="https://plus.google.com/112849304228527795761/posts" target="_blank"><img src="{{ asset('bundles/eieinstitut/images/icons/social/goo.png')}}" width="24" height="24"></a></div>
+			<div class="server-info"><a href="#" target="_blank"><img src="{{ asset('bundles/eieinstitut/images/icons/social/rss.png')}}" width="24" height="24"></a></div>
+                        <div class="server-info" style="padding:0;"><center><div style="font-weight:Bold; background-color:#373737; color:#f8b332;">Accéder à RAMSES :</div> </center><a href="http://www.reseau-ramses.org/" target="_blank"><img src="{{ asset('bundles/eieinstitut/images/logo_ramses.png')}}" width="219" height="69"></a></div>
+		</div>
+	</header>
+	<!-- End server status -->
+	
+	
+	<nav id="main-nav">
+		<ul class="container_12">
+                        {% set CurrentMenu = app.session.get('CurrentMenu') %}
+                        {% set index = '' %}
+                        {% set EspacePersonnel = '' %}
+                        {% set Ressources = '' %}
+                        {% set TutorielsEnLigne = '' %}
+                        {% set Annuaire = '' %}
+                        {% set Forum = '' %}
+                        {% set Actualites = '' %}
+                        
+                        {% if  CurrentMenu == 'index'  %}
+                            {% set index = 'current' %}
+                        {% elseif CurrentMenu == 'EspacePersonnel' %}
+                            {% set EspacePersonnel = 'current' %}
+                        {% elseif CurrentMenu == 'Ressources' %}
+                            {% set Ressources = 'current' %}
+                        {% elseif CurrentMenu == 'TutorielsEnLigne' %}
+                            {% set TutorielsEnLigne = 'current' %}
+                        {% elseif CurrentMenu == 'Annuaire' %}
+                            {% set Annuaire = 'current' %}
+                        {% elseif CurrentMenu == 'Forum' %}
+                            {% set Forum = 'current' %}
+                        {% elseif CurrentMenu == 'Actualites' %}
+                            {% set Actualites = 'current' %}
+                        
+                        {% endif %}
+			<li class="accueil {{ index }}"><a href="{{path('eieinstitut_homepage')}}" title="">Accueil</a></li>
+                        {% if app.user %}
+			<li class="users {{ EspacePersonnel }}" title="Espace personnel"><a href="{{ path('Espace_Personnel') }}" title="">Espace personnel</a></li>
+                        {% endif %}
+			<li class="medias {{ Ressources }}" title="Ressources"><a href="{{ path('Ressources') }}" title="">Ressources</a>
+                           <!-- <ul>
+                                <li><a href="#" title="Articles">Ressources</a></li>
+                                <li><a href="#" title="Add article">Ajouter Ressource</a></li>
+                            </ul>-->
+                        </li>
+                        {% if app.user %}
+			<li class="settings  {{ TutorielsEnLigne }}" title="Tutoriels en ligne"><a href="#" title="">Tutoriels en ligne</a>
+                            <!--<ul>
+                                <li><a href="#" title="Articles">TBI & Visio</a></li>
+                                <li><a href="#" title="Add article">Tutoriels en cours</a></li>
+                                <li><a href="#" title="Add article">Demande en cours</a></li>
+                            </ul>-->
+                        </li>
+			<li class="contacts {{ Annuaire }}" title="Annuaire"><a href="{{ path('Annuaire') }}" title="">Annuaire</a></li>
+                        {% endif %}
+			<li class="comments {{ Forum }}" title="Forum"><a href="{{ path('Forum') }}" title="">Forum</a></li>
+                        <li class="write {{ Actualites }}"><a href="{{ path('actualite') }}" title="Actualités">Actualités</a></li>
+		</ul>
+	</nav>
+		
+			
+	<!-- End main nav -->
+	
+	<!-- Sub nav -->
+	<div id="sub-nav"><div class="container_12">
+		
+		<a href="#" title="Aide" class="nav-button"><b>Rechercher</b></a>
+	
+		<form id="search-form" name="search-form" method="post" action="search.html">
+			<input type="text" name="s" id="s" value="" title="Search admin..." autocomplete="off">
+		</form>
+	
+	</div></div>
+	<!-- End sub nav -->
+	
+	<!-- Status bar -->
+	<div id="status-bar">
+		<div class="container_12">
+                        {% set messages = app.session.get('messages') %}
+			<ul id="status-infos">
+                            {% if app.user %}
+                                
+                            <li class="spaced">Bonjour  <strong>{{ app.user.username }}</strong></li>
+                            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_CONTRIBUTEUR')  %}
+                            <li class="spaced">
+                                <a href="{{ path('ei_administration_homepage') }}" id="breadcrumb"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/application-blog.png')}}" width="16" height="16"> <font color="#FFFFFF">Administration</font></a>
+			
+                            </li>
+                            {% endif %}
+                           
+                                
+			<li>
+				<a href="#" class="button" title="{{ messages|length }} messages"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/mail.png')}}" width="16" height="16"> <strong>{{ app.session.get('msg') }}</strong></a>
+				<div id="messages-list" class="result-block" style="display: none;">
+					<span class="arrow"><span></span></span>
+					
+					<ul class="small-files-list icon-mail relative" style="overflow: hidden;">
+						{% for msg in messages %}
+						<li>
+							<a href="{{ path('messages_recus') }}">
+							<strong>{{msg.dateMessage|date('H:II')}}</strong>
+							{{msg.objet}}<br>
+							<small>De : {{msg.messagesuser.username}}</small></a>
+						</li>
+						{% endfor %}
+						
+					</ul>
+					
+					<p id="messages-info" class="result-info"><a href="#">Boîte de réception</a></p>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="button" title="2 comments"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/balloon.png')}}" width="16" height="16"> <strong>{{ app.session.get('notif') }}</strong></a>
+				<div id="comments-list" class="result-block">
+					<span class="arrow"><span></span></span>
+					
+					<!--<ul class="small-files-list icon-comment">
+						<li>
+							<a href="#"><strong>Jane</strong>: I don't think so<br>
+							<small>On <strong>Post title</strong></small></a>
+						</li>
+						<li>
+							<a href="#"><strong>Ken_54</strong>: What about using a different...<br>
+							<small>On <strong>Post title</strong></small></a>
+						</li>
+											
+					</ul>-->
+					
+					<p id="comments-info" class="result-info"><a href="#">Voir tous les notifications</a></p>
+				</div>
+			</li>
+			
+                        <li><a href="{{ path('logout') }}" class="button red" title="Déconnexion"><span class="smaller">Déconnexion</span></a></li>
+                        {% else %}
+                            <li><a href="{{ path('inscription') }}"  class="button gray" title="Inscription"><span class="smaller">Inscription</span></a></li>
+                            <li><a href="{{ path('login') }}"  class="button green" title="Connexion"><span class="smaller">Connexion</span></a></li>
+                         {% endif %}
+		</ul>
+			
+			<ul id="breadcrumb">
+				<li><a href="#" title="Accueil">Accueil</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- End status bar -->
+	
+	<div id="header-shadow"></div>
+	<!-- End header -->
+
+	
+	<!-- Always visible control bar 
+	<div id="control-bar" class="grey-bg clearfix"><div class="container_12">
+	
+		<div class="float-left">
+			<button type="button"><img src="" width="16" height="16"> Accueil E-INSTITUT</button>
+		</div>
+		
+		<div class="float-right"> 
+			
+		</div>
+			
+	</div></div>-->

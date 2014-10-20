@@ -1,0 +1,189 @@
+{% extends "EiAdministrationBundle::Master-Base-admin.html.twig" %}
+{% block title %}
+      Gérer utilisateur | {{ parent() }}  
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% block content %}
+
+<section class="grid_8">
+    <div class="block-border">
+        <form class="form" id="form1" method="POST" action='{{ path('new_utilisateur', {'id': id }) }}'>
+            <div class="block-content">
+                <div class="block-controls">
+                    <h1> <img src="{{ asset('bundles/eiadministration/images/icons/web-app/48/Profile.png') }}" width="18" height="18"> Inscription </h1>  <br><br>
+                </div>
+                    {% set Nom = '' %}
+                    {% set Prenom = '' %}
+                    {% set Adresse = '' %}
+                    {% set Pays = '' %}
+                    {% set Ville = '' %}
+                    {% set Telephone = '' %}
+                    {% set Sexe = '' %}
+                    {#  set Role = ''#}
+                    {% set Email = '' %}
+                    {% set Login = ''%}
+                    {% set Password = ''%}
+                    
+                    {% if User is not null %}
+                    
+                        {% set Nom = User.nom %}
+			{% set Prenom = User.prenom %}
+                        {% set Adresse = User.adresse %}
+                        {% set Pays = User.pays %}
+			{% set Ville = User.ville %}
+			{% set Telephone = User.tel %}
+			{% set Sexe = User.sexe %}
+			{# set Role = User.role #}
+                        {% set Email = User.email %}
+			{% set Login = User.username %}
+                        {% set Password = User.password %}
+                         
+                    {% endif %} 
+                    
+                <div class="columns form">
+                        <!-- Left column -->
+                        <div class="colx3-left-double">
+                                <fieldset>
+                            <legend>Informations personelles</legend>
+                            <p class="colx2-left">
+                                <span class="label">
+                                    <b>Nom :</b>
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="text" value="{{ Nom }}" name="nom"></input> <br><br>
+                            </p>
+                            <p class="colx2-right">
+                                <span class="label">
+                                    <b> Prénom :</b>
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="text" value="{{Prenom}}" name="prenom"></input> <br><br>
+                            </p>
+                            <p class="colx2">
+                                <span class="label">
+                                    <b>Adresse :</b>
+                                </span>
+                                <textarea name="adresse"  id="field13" class="full-width">{{ Adresse }}</textarea>
+                            </p>
+                            <p class="colx2-left">
+                                <span class="label">
+                                    <b>Pays :</b>
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="text" value="{{Pays}}" name="pays"></input> <br><br>
+                            </p>
+                            <p class="colx2-right">
+                                <span class="label">
+                                    <b>Ville :</b> 
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="text" value="{{Ville}}" name="ville"></input> <br><br>
+                            </p>
+                            <p class="colx2-left">
+                                <span class="label">
+                                    <b>Téléphone :</b>
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="text" value="{{Telephone}}" name="telephone"></input> <br><br>
+                            </p>
+                            
+                            <div class="colx2-right">
+                                <span class="label ">Sexe</span>
+                                <p class="input-height">
+                                    <input type="radio" name="sexe" id="field17-1" value="Homme" checked="checked"> <label for="field17-1">H</label>
+                                    <input type="radio" name="sexe" id="field17-0" value="Femme"> <label for="field17-0">F</label>
+                                </p>
+                            </div>
+                            <div class="clear"></div>
+                            <p class="colx2-left">
+                                <span class="label">
+                                    <b>Rôle</b>
+                                </span>
+                                <select class="full-width" name="role" id="stats-sites-0">
+                                    <option value="ROLE_USAGER">Usager</option>
+                                    <option value="ROLE_ADMIN">Admin</option>
+                                    <option value="ROLE_CONTRIBUTEUR">Contributeur</option>
+                                </select> 
+                            </p>
+                            <p class="colx2-right">
+
+                                <span class="label">
+                                    <b>Activation</b> 
+                                </span>
+                                  <input type="checkbox" name="enabled" id="enabled" value="1" class="mini-switch with-tip" title="Enable/disable switch" checked="checked"/>
+                                
+                        
+                                </br></br>
+                            </p>
+
+                            
+                        </fieldset>
+                      </div>
+                         
+                        <!-- Right column -->
+                          <div class="colx3-right">
+                        <fieldset>
+                            <legend>Information du compte</legend>
+
+
+                            <p class="colx2">
+                                <span class="label">
+                                    <b>Email :</b>
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="text" value="{{Email}}" name="email"></input> 
+                            </p>
+
+                            <p class="colx2">
+                                <span class="label">
+                                    <b>Login :<b>
+                                </span>
+                                 <input id="complex-fr-subtitle" class="full-width" type="text" value="{{Login}}" name="login"></input> 
+                           </p>
+                           <p class="colx2">
+                                <span class="label">
+                                   <b>Mot de Passe :<b>
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="password" value="" name="password"></input> 
+                            </p>
+                            <p class="colx2">
+                                <span class="label">
+                                   <b>Saisir à nouveau :<b>
+                                </span>
+                                <input id="complex-fr-subtitle" class="full-width" type="password" value="" name="confpassword"></input>
+                             </p>
+                            </fieldset>
+                            
+                                <div class="float-right">
+                                    
+                                    <button type="submit" class="small grey" name="btn_preview">
+                                        <img src="{{ asset('bundles/eiadministration/images/icons/fugue/arrow-curve-090.png') }}" width="16" height="16"> Retour
+                                    </button>
+                                    
+                                    {% if id == 'add' %}
+                                    <button type="submit" class="small grey" name="btn_valider">
+                                        <img src="{{ asset('bundles/eiadministration/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Valider
+                                    </button>
+                                    {% else%}
+                                    <button type="submit" class="small grey" name="btn_delete">
+                                        <img src="{{ asset('bundles/eiadministration/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Supprimer
+                                    </button>
+                                    <button type="submit" class="small grey" name="btn_save">
+                                        <img src="{{ asset('bundles/eiadministration/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer
+                                    </button>
+                                    {% endif %}
+                                </div> 
+                        </div>
+                </div>
+                
+            </div>
+        </form>
+        </div>
+    </section>
+
+
+
+
+
+{% endblock %}

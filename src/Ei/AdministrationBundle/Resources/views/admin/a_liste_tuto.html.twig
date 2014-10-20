@@ -1,0 +1,123 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Tutoriels
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+     
+     
+ <section class="grid_9">
+			<div class="block-border">
+			    <div class="block-content">
+
+			      
+					
+				
+						
+						<!--<div class="task with-legend">-->
+					<!--<section class="grid_12">-->
+			<div class="block-border"><form class="block-content form" id="table_form" method="post" action="">
+				
+                               <h1>Tous les tutoriels<a href="{{ path('Ajouter_tuto') }}"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/plus-circle-blue.png') }}" width="16" height="16">Ajouter</a></h1>
+				
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li class="sep"></li>
+						<li><a href="#"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-circle.png') }}" width="16" height="16"></a></li>
+					</ul>
+					
+				</div>
+			
+				<div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				
+					<thead>
+						<tr>
+							
+							<th scope="col">
+								
+								Tuteur
+							</th>
+							<th scope="col"  width="500">Sujet</th>
+							<th scope="col"  style="width: 279px;">Tags</th>
+							<th scope="col">
+								
+								Date et heure
+							</th>								
+						</tr>
+					</thead>
+					
+					<tbody>
+						
+                                               {% for tutoriel in tutoriels %} 
+                                               
+						
+						<tr>
+							<th>{{ tutoriel.userTuto.username }}</th>
+							<td>
+								{% if tutoriel.userTuto.username == app.user.username  %}
+									<a href="#" title="Demarrer" class="with-tip">
+								{% else %}
+									<a href="#" title="Suivre" class="with-tip">
+								{% endif %}
+							<strong>{{tutoriel.titre}}</strong><br>
+						<small>{{tutoriel.descriptif}}</small>
+						
+						<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/control.png') }}" width="16" height="16">
+						
+						</a></td>
+						<td>
+                                                    <ul class="keywords">
+                                                   {% for tag in tutoriel.tutorielsEnLigneTags %}
+                                                        <li><a href="#">{{ tag.libelle }}</a></li>
+                                                    {%endfor%}	 
+						</ul>
+                                                   
+                                                    </td>
+                                                
+                                                    <td>
+                                                        
+
+                                                        
+                                                     
+                                                          
+                                                          
+                                                           {{tutoriel.dateDebut|date("Y-m-d") }} <br>
+                                                          {{tutoriel.dateDebut|date("H:i:s") }} <br>
+                                                     
+                                                   </td>
+                                              
+							
+						</tr>
+                                                {%endfor%}
+				</table></div>
+                                              
+					</tbody>
+				
+				
+				<ul class="message no-margin">
+					<li>Resultat :{{nombre}}</li>
+				</ul>
+				
+				
+			</form></div>
+		<!--</section> -->
+					
+			<!--</div>-->		
+					
+			    </div>
+				
+			</div>
+ 
+		</section>
+          
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %}   

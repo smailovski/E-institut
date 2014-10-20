@@ -1,0 +1,59 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}
+    <!--section detail-->			
+		<section class="grid_12">
+			<div class="block-border">
+			    <div class="block-content">
+
+					<div class="block-controls">
+						<h1>Contact </h1>
+					</div>
+
+				
+				<div class="fieldset  grey-bg clearfix">
+				<div class="grid_2 box float-left">
+					
+					<ul class="bullet-list  with-icon">
+						<li><a href="{{ path('AIDE_FAQ') }}">F.A.Q</a></li> 
+						<li><a href="{{ path('AIDE_Charte') }}">Charte d'utilisation</a> </li>
+						<li><a href="{{ path('AIDE_Security') }}">Sécurité </a></li>
+						<li><a href="{{ path('AIDE_Contact') }}">Contact </a></li> 
+					</ul>
+				</div>
+					
+					<form class="form" id="simple_form" method="post" action="">			
+					<fieldset class="">
+					<p>
+						<label for="simple-select">Votre demande concerne</label>
+							<select name="simple-select" id="simple-select" class="full-width">
+								<option value="1">Aide</option>
+								<option value="2">Renseignement</option>
+								<option value="3">Option 3</option>	
+							</select>
+						<label for="simple-required">Nom</label>
+						<input type="text" name="simple-required" id="simple-required" value="" class="full-width">
+						<label for="simple-required">Prénom</label>
+						<input type="text" name="simple-required" id="simple-required" value="" class="full-width">
+						<label for="simple-required">Objet</label>
+						<input type="text" name="simple-required" id="simple-required" value="" class="full-width">
+						<label for="simple-required">Message</label>
+						<textarea name="ameliorer" id="ameliorer" rows="10" cols="142">  
+					    </textarea>  
+					    <br>
+						<button type="button">Envoyer</button>
+					</p>
+	
+				</fieldset>
+			</div>
+					
+				</div>
+					<div class="clear"></div>
+			    </div>
+				
+			</div>
+ 
+		</section>			
+		<!--fin section lioste des publications -->	
+{% endblock %}

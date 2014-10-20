@@ -1,0 +1,140 @@
+
+{% extends "EieinstitutBundle::Sub-Master-Left.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Messages
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+
+
+{% block content %}
+<section class="grid_9">
+			<div class="block-border">
+			    <div class="block-content">
+
+			      
+					
+				
+						
+						<!--<div class="task with-legend">-->
+					<!--<section class="grid_12">-->
+			<div class="block-border"><form class="block-content form" name="table_form" id="table_form" method="post" action="">
+				
+				
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li><a href="#" title="Previous"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png')}}" width="16" height="16"> Prec</a></li>
+						
+						<li><a href="#" title="Next">Suiv <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png')}}" width="16" height="16"></a></li>
+				
+						
+					</ul>
+					
+				</div>
+			
+				<div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				
+				
+					
+					<tbody>
+						
+                                                 
+						<tr>
+							<th scope="row" class="table-check-cell">De</th>
+							<td>{% for u in detailsmessage.users %} {{u.nom|upper }} {{ u.prenom|capitalize }} {% endfor %}</td>
+							
+						</tr>
+						
+						<tr>
+							<th scope="row" class="table-check-cell">Objet</th>
+							<td>{{detailsmessage.objet}}</td>
+							
+						</tr>
+						
+						<tr>
+							<th scope="row" class="table-check-cell">text</th>
+							<td><textarea id="complex-fr-subtitle" class="full-width" rows="10" cols="7" name="description" disabled> {{detailsmessage.message}}
+											
+										</textarea>
+							
+							
+							
+							
+							</td>
+							
+						</tr>
+						
+						
+						
+					</tbody>
+				
+				</table></div>
+				
+				
+				<div class="block-footer">
+					
+				
+					<a href="{{ path('Repondre',{'message': detailsmessage.id }) }}" class="button">Repondre</a> 
+					<a href="#" onclick="ConfirmSupression({{detailsmessage.id}}); return false;" class="button">Supprimer</a>
+					<span class="sep"></span>
+					
+				</div>
+					
+			</form></div>
+		<!--</section> -->
+					
+			<!--</div>-->		
+					
+			    </div>
+				
+			</div>
+ 
+		</section>
+     
+                      {% endblock %}
+     
+
+{% block javascripts_Bottom %}
+     <script type="text/javascript">
+    function ConfirmSupression(id)
+        {
+            $.modal({
+                content: 'Voulez-vous supprimer ce message ?'
+                          ,
+                title: 'Confirmation',
+                maxWidth: 300,
+                buttons: {
+                    'Confirmer': function(win) { 
+                    // Action login
+                   // var idmsg = id;
+                        console.log("Message id :", id);
+                        $.post(
+                                            '{{ path("supprimer_messages") }}',
+                                            {param_idmessage :   id },
+                                                function(message)
+                                                {  
+                                                    console.log("Supprimer");
+                                                    $("body").load("{{ path('Recus') }}");
+                                                 
+                                                }
+                                        );
+
+
+
+                     },
+                    'Fermer': function(win) { win.closeModal(); }
+                }
+            });
+        }
+</script>
+
+{% endblock %}

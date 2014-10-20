@@ -1,0 +1,362 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+{% block title %}
+     {{ parent() }}   | Ressources
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+   
+
+
+        <div class="clear"></div>
+
+
+
+        <!--section filtre -->	   	
+
+        <section class="grid_3">
+                <div class="block-border">
+                <div class="block-content">
+                        <h1> Filtre </h1>
+
+                        <div class="block-controls">
+                                <!--<ul class="controls-buttons">
+                                        <li><a href="#"><strong>Afficher tout</strong></a></li>
+                                        <li class="sep"></li>
+                                        <li><a href="#" title="Actualiser"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-circle.png')}}" width="16" height="16"></a></li>
+                                </ul>-->
+                        </div>
+                    <form class="form" id="recherche_fiche" method="post" action="{{ path('action_fiche') }}">
+                        <label for="simple-calendar" id="titrer">Mots Clés</label>
+                        <p class="input-type-text">
+                            
+
+                            <input type="text" name="titre" id="simple-search" value="" style="width:90%" title="Filter results">
+                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png')}}" width="16" height="16" class="float-right">
+
+                        </p>
+
+
+                        
+                        <div class="columns">                  
+                        <span class="label">Domaine</span>
+                        <select name="Domaine" id="stats-sites-0" class="full-width">
+                            <option value="-1">--->Choisissez<---</option>
+                                <option value="0">Informatique</option>
+                                <option value="0">Economie</option>
+                        </select>
+                        </div>
+           
+
+                    <div class="columns">
+                    <span class="label">Théme</span>
+                    <select name="theme" id="stats-sites-0" class="full-width">
+                        <option value="-1">--->Choisissez<---</option>
+                            <option value="0">Développemnt</option>
+                            <option value="0">Réseau</option>
+                    </select>
+            
+                    </div>
+            
+            
+                    <div class="columns">
+                            <span class="label">Type</span>
+                            <select name="type" id="stats-sites-0" class="full-width">
+                                <option value="-1">--->Choisissez<---</option>
+                                    <option value="0">Vidéo</option>
+                                    <option value="0">Document PDF</option>
+                            </select>                  
+                    </div>
+            
+                    
+                                        
+
+
+                                      
+
+
+                        
+                       
+                    
+
+                       
+                   
+                      <div class="clear"></div>
+                <div class="float-right" >
+                             <button type="submit" class="grey" >Rechercher</button>
+                         </div>
+ <div class="clear"></div>
+                </form>
+
+                     <ul class="collapsible-list with-bg">
+                                <li>
+                                        <b class="toggle"></b>
+                                        <span>Type</span>
+                                        <ul>
+
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-1" value="1">
+                                                        <label for="simple-checkbox-1">Video</label>
+                                                </li>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-2" value="2">
+                                                        <label for="simple-checkbox-2">Support papier</label>
+                                                </li>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-3" value="3">
+                                                        <label for="simple-checkbox-3">Slide</label>
+                                                </li>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-4" value="4">
+                                                        <label for="simple-checkbox-4">Audio</label>
+                                                </li>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-5" value="5">
+                                                        <label for="simple-checkbox-5">Code source</label>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="closed">
+                                        <b class="toggle"></b>
+                                        <span>Domaine</span>
+                                        <ul>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-1" value="1">
+                                                        <label for="simple-checkbox-1">Informatique</label>
+                                                </li>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-2" value="2">
+                                                        <label for="simple-checkbox-2">Droit</label>
+                                                </li>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-3" value="3">
+                                                        <label for="simple-checkbox-3">Economie</label>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="closed">
+                                        <b class="toggle"></b>
+                                        <span>Thème</span>
+                                        <ul>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-1" value="1">
+                                                        <label for="simple-checkbox-1">Base de donnés</label>
+                                                </li>
+                                                <li class="closed">
+                                                        <input type="checkbox" name="simple-checkbox[]" id="simple-checkbox-2" value="2">
+                                                        <label for="simple-checkbox-2">JAVA</label>
+                                                </li>
+                                        </ul>
+                                </li>
+
+                                <li class="closed">
+                                <b class="toggle"></b>
+                                <span >Pour préparer</span>
+                                    <ul>
+                                                
+                                                        <ul class="checkable-list">
+                                                                <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-1" value="1">&nbsp;<label for="simple-radio-1"> Mes cours</label></li>
+                                                                <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2"> Mes travaux dirigés</label></li>
+                                                                <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2"> Mes expériences </label></li> 
+                                                                <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2"> Mes exposés scientifiques</label></li>                                      
+                                                        </ul>
+                                    </ul>
+
+                                        
+                                </li>
+
+                                <li class="closed">
+                                <b class="toggle"></b>
+                                <span >Pour donner des compléments documentaires à</span>
+                                        <ul class="checkable-list">
+                                            <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-1" value="1">&nbsp;<label for="simple-radio-1"> Mes cours</label></li>
+                                            <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2"> Mes travaux dirigés</label></li>
+                                            <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2"> Mes expériences </label></li> 
+                                            <li class="closed"><input type="radio" name="simple-radio" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2"> Mes exposés scientifiques</label></li>                                      
+                                         </ul>
+                                </li>
+
+                                <li class="closed">
+                                <b class="toggle"></b>
+                                <span >Choix des base</span>
+
+                                <ul class="checkable-list">
+                                                                        <li class="closed"><input type="checkbox" name="stats-display[]" id="stats-display-0" value="0">&nbsp;<label for="stats-display-0">Pour comprendre les bases d'un sujet</label></li>
+                                                                        <li class="closed"><input type="checkbox" name="stats-display[]" id="stats-display-1" value="1">&nbsp;<label for="stats-display-1">Pour approfondir mes connaissances sur un sujet</label></li>
+                                                                        <li class="closed"><input type="checkbox" name="stats-display[]" id="stats-display-0" value="0">&nbsp;<label for="stats-display-0">Pour résoudre les problèmes du domaine</label> </li>
+                                                                        <li class="closed"><input type="checkbox" name="stats-display[]" id="stats-display-1" value="1">&nbsp;<label for="stats-display-1">Pour s'exercer</label></li>                                         
+                                                        </ul>
+                            </li>
+                        </ul>
+                         <div class="float-right" >
+                             <button type="button" class="grey" >Rechercher</button>
+                         </div>
+
+                         <div class="clear"></div>
+                
+
+                </div></div>
+        </section>
+        <!--fin section filtre -->	
+
+        <!--section liste des publications-->	
+
+        <section class="grid_9">
+                <div class="block-border">
+                    <div class="block-content">
+
+
+                                <div class="block-controls">
+                                                        <h1>Publications </h1>  <br><br>
+
+                                </div>
+                                <form class="form" id="tab-stats" method="post" action="">
+                                    
+ 
+        
+        
+        <div class="block-controls">
+             <div class="controls-buttons">
+                                        
+
+                                            <!-- The class sub-hover removes the hover effect for the whole div -->
+                                            <div class="sub-hover">
+                                                    <a href="#" class="disabled">Libellé</a>
+                                                    <a href="#">Date</a>
+                                                    <a href="#">Domaine</a>
+                                                    <a href="#">Link 2</a>
+                                                    <a href="#">Link 2</a>
+                                            </div>
+                                           
+                                            
+                                    </div>
+					
+					<ul class="controls-buttons">
+						
+						 
+                          <li><a href="#" title="Précédent"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png')}}" width="16" height="16"> Précédent</a></li>
+                                        <li><a href="#" title="Page 1"><b>1</b></a></li>
+                                        <li><a href="#" title="Page 2" class="current"><b>2</b></a></li>
+                                        <li><a href="#" title="Page 3"><b>3</b></a></li>
+                                        <li><a href="#" title="Page 4"><b>4</b></a></li>
+                                        <li><a href="#" title="Page 5"><b>5</b></a></li>
+                                        <li><a href="#" title="suivant">Suivant <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png')}}" width="16" height="16"></a></li>
+                                        <li class="sep"></li>   
+                        <li>
+                             <label for="show-empty">Trier par</label>
+                        </li>  
+                        <li class="sep"></li>                 
+					</ul>
+                                       
+					
+				</div>
+      
+
+                <!--fin recherche avancée-->	
+                               
+
+                        </form>	<input type="texte"/>
+                        {% for Fiche in Fiches %}
+                          {% if Fiche.statut==1  %}  
+                            <div class="task with-legend ">
+						
+                                           <!-- The legend -->
+                                           <div class="legend">
+												{% if Fiche.type=='document'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='excel'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-excel.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='video'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-film.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='flash'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-flash-movie.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='image'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-image.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='audio'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-music.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='pdf'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-pdf.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='word'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-word.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='ppt'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-powerpoint.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='zip'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-zipper.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='text'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-text.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='database'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/database.png')}}" width="16" height="16"/> 
+													
+												{% endif   %}
+                                               {{ Fiche.type }}
+                                           </div>
+
+                                           <div class="task-description">
+
+                                                   <!-- Task-list has special integration of the floating-tags class -->
+
+                                                   <div class="columns">
+                                                            <!--{{ Fiche.DateCreation|date('Y-m-d H:i') }}-->
+                                                           <ul class="floating-tags">
+                                                                   <li class="tag-time">{{ Fiche.DateCreation|time_ago_in_words  }}</li>
+                                                                   <li class="tag-user">{{ Fiche.User.username }}</li>
+                                                                   <li>{{ Fiche.theme }}</li>
+                                                                   <li>{{ Fiche.domaine }}</li>
+                                                           </ul>
+                                                           <h3><a href="#"> {{ Fiche.titre }}</a></h3>
+                                                           {{ Fiche.resume }}
+                                                   </div> 
+                                                   <div class="columns">
+                                                           <ul class="keywords">
+                                                                  {% for tag in Fiche.fiche_tags %}  <li><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tag-small.png')}}" width="16" height="16"> {{ tag.libelle }} </li>{% endfor %}
+                                                                  
+                                                           </ul>
+                                                   </div>
+                                           </div>
+                                                   <ul class="mini-menu" style="opacity: 0;">
+                                                           <li><a href="{{ path('detail_ressource',{'fiche': Fiche.id }) }}" title="Detail"> + Détails<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-000-white.png')}}" width="16" height="16"></a></li>
+                                                   </ul>
+                                           </div>	
+                       {% endif   %}
+					   {% endfor %}
+                              
+						<ul class="controls-buttons">
+						<li>il y'a <strong>{{ total_articles }}</strong> ressources</li>
+								<li><a href="{{ path('Ressources', { 'page': 1 }) }}"> <span> |< </span> </a></li>
+								<li><a href="{{ path('Ressources', { 'page': previous_page }) }}" title="Précédent"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png')}}" width="16" height="16"> Précédent</a></li>
+								  {% for page in 1..last_page %}
+									{% if page == current_page %}
+									
+								<li><a  title="Page {{ page }}" class="current"><b>{{ page }}</b></a></li>
+								{% else %}
+								<li><a href="{{ path('Ressources', { 'page': page }) }}"  title="Page {{ page }}"><b>{{ page }}</b></a></li>
+								{% endif %}
+								{% endfor %}
+								<li><a href="{{ path('Ressources', { 'page': next_page }) }}" title="suivant">Suivant <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png')}}" width="16" height="16"></a></li>
+								<li><a href="{{ path('Ressources', { 'page': last_page }) }}" title="derniére page"> <span> >| </span> </a></li>
+												 			</ul> <div class="clear"></div> <center><div class="pagination_desc" > 
+								 {% if last_page > 1 %}
+								 - page <strong>{{ current_page }}/{{ last_page }}</strong> {% endif %} -</div></center>
+											
+						
+						<div class="clear"></div>
+					
+						
+                    </div>
+
+                </div>
+
+        </section>
+        <!--fin section lioste des publications -->	
+
+
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %}

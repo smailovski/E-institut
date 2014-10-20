@@ -1,0 +1,40 @@
+{% extends "EieinstitutBundle::Sub-Master-Left.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Supprimer contacts
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+{% block Sub_Content %}
+    <section class="grid_9">
+
+			<div class="block-border"><form class="block-content form" name="table_form" id="table_form" method="post" action="{{ path('supprimer_contact',{'contact':  UserContact.username  }) }}">
+				<h1>
+					Supression de contact
+				</h1>
+                                        
+                         <form class="block-content form" name="_FormContact" id="FormContact_form" method="post" action="">
+                             
+                          {{ UserContact.nom }} {{ UserContact.prenom }} <br> 
+                             
+                           <button type="submit" class="small" name="submit_delete">Valider</button>	<button type="button" class="small">annuler</button>
+			  
+                         </form>
+				
+				
+				
+				
+
+    </section>
+{% endblock %}
+
+{% block javascripts_Bottom %}
+
+{% endblock %}

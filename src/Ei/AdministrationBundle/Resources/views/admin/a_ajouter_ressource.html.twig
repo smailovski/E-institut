@@ -1,0 +1,163 @@
+{% extends "EiAdministrationBundle::Master-Base-admin.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Ajouter une ressource
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+<section class="grid_9">
+			<div class="block-border">
+			    <div class="block-content">
+
+			      
+					<div class="block-controls">
+								<h1>Ajouter une ressource </h1>  <br><br>
+								
+					</div>
+						<form class="form" id="ajouer_ressource" method="post" action="">
+							<fieldset class="grey-bg">
+						
+							<h3>Informations : </h3><br><br>
+                                                        <span  class="label required">
+											Titre 
+										</span>                                                             
+								<input id="complex-fr-subtitle" class="full-width" type="text" name="titre"></input> <br><br>
+								<!--<legend><a href="#">Recherche avancée</legend>-->
+										
+										<span  class="label required">
+											Description
+										</span>
+                                                                
+                                                        	<textarea id="editable" class="full-width" type="text" rows="10" cols="7" name="description">textarea</textarea><br><br>
+
+										<span  class="label required">
+											 URL 
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text"  name="url"></input> <br><br>
+								<div class="columns">
+							<p class="colx2-left">
+									<span  class="label required">
+											Tags
+									</span>
+								<input id="id_tags" class="full-width" type="text" value="" name="txt_tags"> <br><br>
+								
+							</p>
+							<p class="colx2-right">
+							<span  class="label ">
+										&nbsp;	
+									</span>
+								<button type="button" name="add_tags_fiche" onclick="addTag()" >Ajouter</button> <br><br>
+								
+								</p>
+								</div>
+									
+			<div class="block-border">
+			    <div class="block-content no-title">
+			    	<h3>Tags</h3>
+			    
+					<ul class="tags" id="tags" name="tags[]">
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					</ul>
+
+				</div>
+			</div><br>
+			
+			
+				
+				<span  class="label required"> Domaine </span>
+					<select class="full-width" name="domaine" id="stats-sites-0" >
+						<option value="Banque/comptabilité/assurance">Banque/comptabilité/assurance</option>
+						<option value="Commerce">Commerce</option>
+						<option value="Droit">Droit</option>
+						<option value="Economie">Economie</option>
+						<option value="Gestion projet/Ressorces humaines">Gestion projet/Ressorces humaines</option>
+						<option value="Informatique">Informatique</option>
+						<option value="Informatique">Marketing</option>
+						<option value="Santé">Santé</option>
+						<option value="Autre">Autre</option>
+					</select><br><br>		
+				
+				<span  class="label required"> Théme</span>
+					<!--<select class="full-width" name="theme" id="stats-sites-0">
+						<option value="Développemnt">Développemnt</option>
+						<option value="Réseau">Réseau</option>
+					</select><br><br>	--><input id="complex-fr-subtitle" class="full-width" type="text" value="" name="theme">
+						
+				<span  class="label required">Type</span>
+					<select class="full-width" name="type" id="stats-sites-0">
+						<option value="Audio">Audio</option>
+						<option value="Document">Document</option>
+						<option value="Database">Data base</option>
+						<option value="Excel">Excel</option>
+						<option value="Flash">Flash</option>
+						<option value="Pdf">Pdf</option>
+						<option value="Vidéo">Vidéo</option>
+						<option value="Word">Word</option>
+					</select>
+					
+						
+					<div class="float-right"><br>
+					<a href="{{ path('ei_administration_ressource') }}"> <button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button></a>
+                                        <button type="submit" name="btn_save"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>						
+					</div>
+				</div>
+			</div>
+			</form>
+						
+							</fieldset>								
+		</section>
+
+
+{% endblock %}
+     
+{% block javascripts_Bottom %}
+	<script>
+	function addTag()
+	{
+		console.log("TRK", $('#id_tags').val());
+		$('#tags').append("<li>"+$('#id_tags').val()+"</li> ");
+	}
+	
+	
+	$("#Ajouter_ressource").click(function(){
+        console.log("TRK");
+			var tags = [];
+		$('#tags').each(function(){
+			//$(this).find('li').toArray();
+			$(this).find('li').each(function(){
+				var current = $(this);
+				tags.push( current.text() );
+				console.log("Li : ", current.text());
+			});
+			//alert(tags);
+		});
+		
+	
+		$.post(
+		"{{ path('Ressources_Ajouter') }}",
+		{param_titre: "TRK" ,param_tags :  tags },
+			function(message)
+			{  
+				console.log("TRK Sucssess");
+			}
+		);
+    });   
+	
+	
+	
+	
+	</script>
+{% endblock %}

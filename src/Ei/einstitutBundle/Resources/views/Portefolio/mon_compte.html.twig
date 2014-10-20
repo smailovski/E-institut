@@ -1,0 +1,78 @@
+{% extends "EieinstitutBundle::Sub-Master-Left.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Ajouter une ressource
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+{% block Sub_Content %}
+
+<section class="grid_6">
+    <div class="block-border">
+        <div class="block-content">
+
+
+            <div class="block-controls">
+                <h1>Mon compte </h1>  <br><br>
+
+            </div>
+            <form class="form" id="tab-stats" method="post" action="">
+                <fieldset class="grey-bg">
+                    <h3>Compte: </h3><br><br>
+                    <!--<legend><a href="#">Recherche avancée</legend>-->
+                    <span >
+                        <b>Nom </b>
+                    </span>
+                    <input id="complex-fr-subtitle" class="full-width" type="text" value="" name="nom"></input> <br><br>
+                    <span >
+                        <b>Prénom</b>
+                    </span>
+                    <input id="complex-fr-subtitle" class="full-width" type="text" value="" name="prenom"></input> <br><br>
+                    <span >
+                        <b> Email </b>
+                    </span>
+                    <input id="complex-fr-subtitle" class="full-width" type="text" value="" name="email"></input> <br><br>
+                    <span >
+                        <b> Login </b>
+                    </span>
+                    <input id="complex-fr-subtitle" class="full-width" type="text" value="" name="login"></input> <br>
+
+                </fieldset>
+
+                <fieldset class="grey-bg with-legend">
+                    <h3>Mot de passe: </h3><br><br>
+                    <span>
+                        <b> Actuel </b>
+                    </span>
+                    <input id="complex-fr-subtitle" class="full-width" type="text" value="" name="actuel_pwd"></input> <br><br>
+                    <span>
+                        <b> Nouveau </b>
+                    </span>
+                    <input id="complex-fr-subtitle" class="full-width" type="text" value="" name="nouveau_pwd"></input> <br><br>
+                    <span>
+                        <b>Saisir à nouveau </b>
+                    </span>
+                    <input id="complex-fr-subtitle" class="full-width" type="text" value="" name="nouveau1_pwd"></input> <br><br>
+
+                    <div class="float-right"><br>
+
+                        <button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png')}}" width="16" height="16"> Annuler</button>
+                        <button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png')}}" width="16" height="16"> Enregistrer</button>
+                    </div>
+                </fieldset>
+            </form>		
+        </div>
+    </div>
+</section>
+{% endblock %}
+     
+{% block javascripts_Bottom %}
+
+{% endblock %}

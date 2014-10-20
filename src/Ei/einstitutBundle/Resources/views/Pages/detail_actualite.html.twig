@@ -1,0 +1,40 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}
+    <!--section detail-->	
+    <div class="clear"></div>
+		<section class="grid_9">
+			<div class="block-border"><div class="block-content">
+				<h1>Actualités</h1>																	
+				<div class="block-controls">
+					<ul class="controls-buttons">
+						<li><a href="#" title="Previous page"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png') }}" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li><a href="#"><strong>Les actualités</strong></a></li>
+						<li class="sep"></li>
+						<li><a href="#" title="Next page"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png') }}" width="16" height="16"></a></li>
+					</ul>
+				</div>
+				{% for actualite in actualites %}
+					
+					<h2 class="bigger">{{ actualite.titre }}</h2>
+					<div style="margin-left:40%;">
+					<a href="#"><img src="{{ asset( actualite.urlimage  )}}" width="300" height="280"></a>		
+					</div>
+					<dl class="">
+					<dt><span class="number">Date</span> {{ actualite.dateactualite|date('d-m-Y') }}</dt>
+                                        <dd><br></dd>
+					<dd>
+						 {{ actualite.contenu }}
+					</dd>	
+					<dd >	
+					<ul class="float-right" style="display:flex"><li>Editeur: </li><li><a href="#" >{{ actualite.user.username }}</a></li></ul></dd><div class="clear"></div>
+					
+					</dl>
+			{% endfor %}
+			</div></div>
+		</section>
+
+		<!--fin section lioste des publications -->	
+{% endblock %}

@@ -1,0 +1,68 @@
+
+
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}	
+
+	<section class="grid_3">
+		<div class="block-border">
+			    <div class="block-content">	
+				<h1>Légal</h1>
+					 <ul class="bullet-list">
+							   					
+								<li><a href="{{ path('AIDE_Charte') }}">Conditions d'utilisation</a></li>
+								<li><a href="{{ path('Legal_Vie_privee') }}">Vie privée</a></li>
+								<li><a href="{{ path('Legal_Licence') }}">Licences ouvertures</a></li>
+								<li><a href="{{ path('Legal_Signaler') }}">Signaler</a></li>
+								<li><a href="{{ path('Legal_Mention') }}">Mentions légales</a></li>								
+                            </ul>
+				</div>
+		</div>
+	</section>
+		<section class="grid_9">
+			<div class="block-border">
+			    <div class="block-content">
+
+					<div class="block-controls">
+						<h1>Vie privée </h1>
+					</div>				
+				<div class="">
+					<div class="task-description">
+
+<p>E-institut est un réseau social ouvert où ce qui vous identifie est basé sur le savoir et la participation. Ce qui a trait à vos publications et à votre identification en tant qu'auteur et contributeur est donc en accès libre, tandis que vos informations personnelles (adresse email, etc) restent strictement privées. Certaines des informations nécessaires pour trouver des contacts qui vous sont complémentaires et peuvent vous aider sont également disponibles pour les autres membres d'E-institut.</p>
+
+<p>E-institut ne communiquera pas vos données personnelles à des tiers, et vous restez seul propriétaire et gestionnaire des données vous concernant. La seule exception à ce cas concerne les communications de données demandées par la justice dans le cadre d'une procédure légale.</p>
+
+<p>E-institut maintient une base de données sécurisée pour vos informations confidentielles, et prend toutes les précautions pour en assurer l'intégrité. Chacun peut à tout moment modifier ses informations personnelles dans son profil ou demander la suppression de son compte à admin@e-institut.net. L'intégralité des données personnelles du compte supprimé seront alors effacées.</p>
+
+<p><b>Note :</b> du fait de la duplication des données, les duplicata de données personnelles sauvegardées ne seront effacés lors de la suppression d'un compte qu'au rythme des mises à jour des dites sauvegardes.</p>
+
+<p>Voici donc en résumé le niveau de confidentialité de vos informations :
+
+	<p>Informations publiques :</p>
+	<p>
+		- vos publications, questions, réponses, likes, et commentaires;<br />
+		- vos nom, prénom, type d’utilisateur et réputation;<br />
+		- niveau parcours scolaire ou professionnel;<br />
+		 - informations relatives à la connexion des réseaux sociaux tiers;<br />
+		 - contacts.
+	</p>
+	
+	<p>Informations privées confidentielles :</p>
+	<ul>
+		<li>email et coordonnées</li>
+	</ul>
+	
+
+<p style="font-weight:bold">
+(idem : modèle beebac, début de réflexion pour rédiger les conditions spécifiques à E-institut)</p></div>
+				</div>
+					<div class="clear"></div>
+			    </div>
+				
+			</div>
+ 
+		</section>
+
+{% endblock %}

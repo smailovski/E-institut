@@ -1,0 +1,21 @@
+
+
+
+{% block content %}
+<!--Block méssagerie-->
+
+  
+        <div class="block-border">
+            <div class="block-content">
+                <h1>Ma messagerie</h1>
+
+                <ul class="simple-list">
+                    <li><a href="{{ path('Nouveau_message') }}">Nouveau message</a></li>
+                    <li><a href="{{ path('Recus') }}">Messages re&ccedil;us</a></li>
+                    <li><a href="{{ path('Envoyes') }}">Messages envoy&eacute;s</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+{% endblock %}

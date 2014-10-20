@@ -1,0 +1,45 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}
+    <!--section detail-->	
+			<!--blocks gauche -->
+			<section class="grid_3">
+			<div class="block-border">
+			<div class="block-content">
+						<h1>E-institut</h1>
+						
+						<ul class="bullet-list with-icon">
+							<ul>
+							<li><a href="{{ path('A_propos') }}">À propos</a></li>
+							<li><a href="{{ path('Concept') }}">Concept</a></li>
+							<li><a href="#">Presse</a></li>
+							<li><a href="#">Le blog</a></li>
+							</ul>
+						</ul>
+				</div>
+			</div>
+			</section>
+		</section>
+
+		<!-- block du milieu-->
+		<section class="grid_9">	
+		
+			<div class="block-border"><div class="block-content">
+				<h1>À propos</h1>
+				<p style="font-weight:bold">A propos</p>
+
+<p>E-institut est une initiative du r&eacute;seau Ramses, le R&eacute;seau Africain pour la Mutualisation et le Soutien des p&ocirc;les d'Excellence Scientifique.</p>
+
+<p>Il a vocation &agrave; proposer aux &eacute;tablissements d'enseignement sup&eacute;rieur d'Afrique sub-saharienne une plateforme en ligne d&eacute;di&eacute;e &agrave; l'&eacute;ducation, au partage des savoirs et &agrave; la scolarit&eacute;.</p>
+
+<p>E-institut s'adresse &agrave; la fois aux &eacute;tudiants, aux enseignants-chercheurs, &agrave; la diaspora, aux professionnels en lien avec le monde universitaire et aux administratifs des &eacute;tablissements.</p>
+
+<p style="font-weight:bold">Comment &ccedil;a fonctionne ?</p> En s'inscrivant sur le site, chacun peut soumettre des ressources scientifiques et p&eacute;dagogiques trouv&eacute;es sur internet pour leur int&eacute;r&ecirc;t et ainsi les partager avec la communaut&eacute; E-institut. Une pr&eacute;conisation fine permet d'indiquer aux autres en quoi elles sont int&eacute;ressantes. C'est ainsi que chacun b&eacute;n&eacute;ficie de l'expertise des autres pour trouver les ressources appropri&eacute;es &agrave; son besoin et partager le fruit de son exp&eacute;rience dans son domaine de recherche.</p>
+
+<p>E-institut est aussi une plateforme qui favorise le travail de groupe en permettant de cr&eacute;er un espace d&eacute;di&eacute; dans lequel chacun peut collaborer sur un projet commun.</p>
+			</div></div><br/>
+		</section>
+
+		<!--fin section lioste des publications -->	
+{% endblock %}

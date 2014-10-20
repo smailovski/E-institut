@@ -1,0 +1,44 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+{% block title %}
+     {{ parent() }} 
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+
+{% block content %}
+	
+	<section class="grid_9">
+		<div class="block-border">
+			<div class="block-content">
+				<h1>Titre </h1>
+				<div class="block-controls">
+					<div class="controls-buttons">
+						<div class="sub-hover">
+							<a href="#">link></a>
+						</div>
+					</div>
+				</div>
+	
+				{% block Sub_Content %}
+
+				{% endblock %}
+			</div>
+		</div>
+    </section>
+    <section class="grid_3">
+	{% block Slide %}
+
+	{% endblock %}
+	</section>
+{% endblock %}
+
+{% block javascripts_Bottom %}
+
+{% endblock %}

@@ -1,0 +1,8 @@
+ei_administration:
+    resource: "@EiAdministrationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+eieinstitut:
+    resource: "@EieinstitutBundle/Resources/config/routing.yml"
+    prefix:   /
+

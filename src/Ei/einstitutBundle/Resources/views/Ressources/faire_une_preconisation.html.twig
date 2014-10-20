@@ -1,0 +1,159 @@
+
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}
+<section class="grid_3">
+    <div class="block-border">
+        <div class="block-content">
+            <h1>Préconisations</h1>
+
+            <div class="task with-legend">
+                <div class="legend"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/flag.png')}}" width="16" height="16"> Les dernières préconisations</div>
+
+                <div class="task-description">
+                    <ul class="floating-tags">
+                        <li class="tag-time">5 days ago</li>
+                        <li class="tag-user">You</li>
+                    </ul>
+
+                    <h3>Type fiche</h3>
+                    Small task description Lorem ipsum
+
+                </div>
+                <!-- les 5 dernières préconisations-->
+                <ul class="task-dialog">
+                    <li>
+                        <strong>Marc:</strong> Don't forget to tell the client <em>- Yesterday</em>
+
+                    </li>
+                    <li>
+                        <strong>John:</strong> I suggest you could ask Dan or Sandy for a little help <em>- 2 hours ago</em>
+
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+
+        </div></div>
+
+    <div class="block-border">
+        <div class="block-content">
+            <h1>Commentaires</h1>
+
+            <div class="task with-legend">
+                <div class="legend"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/flag.png')}}" width="16" height="16"> Les derniers commentaires</div>
+
+                <div class="task-description">
+                    <ul class="floating-tags">
+                        <li class="tag-time">5 days ago</li>
+                        <li class="tag-user">You</li>
+                    </ul>
+
+                    <h3>Type fiche</h3>
+                    Small task description Lorem ipsum
+
+                </div>
+                <!-- les 5 derniers commentaires-->
+                <ul class="task-dialog">
+                    <li>
+                        <strong>Marc:</strong> Don't forget to tell the client <em>- Yesterday</em>
+                        <ul class="mini-menu" style="opacity: 0;">
+                            <li><a href="#" title="Send mail"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/mail.png')}}" width="16" height="16"></a></li>
+                            <li><a href="#" title="Delete comment"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png')}}" width="16" height="16"> Delete</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>John:</strong> I suggest you could ask Dan or Sandy for a little help <em>- 2 hours ago</em>
+                    </li>
+                    <li class="auto-hide" style="">
+                        <form name="task-1-comment" method="post" action="" class="form input-with-button">
+                            <input type="text" name="comment" id="task-1-comment" value="" title="Enter comment...">
+                            <button type="submit">ok</button>
+                        </form>
+                    </li>
+
+
+                </ul>
+            </div>
+
+
+
+        </div></div>
+
+
+</section>
+
+<section class="grid_9">
+    <div class="block-border">
+        <div class="block-content">
+            <div class="block-controls">
+                <h1 class="bigger">{{ fiche.titre }}</h1>
+            </div>
+            <div class="fieldset  grey-bg clearfix">
+                <div class="box float-right">
+
+                        <ul class="simple-list with-icon">
+                            <li ><span>Mise en ligne : {{ fiche.datecreation|time_ago_in_words }}</span></li>
+                            <li ><span>Domaine : {{ fiche.domaine }}</span></li>
+                            <li ><span>Thème : {{ fiche.theme }}</span></li>
+                            <li ><span>Type : {{ fiche.type }}</span></li>
+                        </ul>
+                </div>
+                <p>{{ fiche.resume }}</p>
+                <p> Adresse <a href="http://{{ fiche.url }}" target="_blank" >{{ fiche.url }}</a></p>
+                <p><ul class="keywords">
+                    Tags 
+                    {% for tag in fiche.fiche_tags %}
+                        <li><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tag-small.png')}}" width="16" height="16"> {{ tag.libelle }} </li>
+                    {% endfor %}
+                </ul></p>
+                <hr class="no-margin">
+            </div>
+            <div class="task with-legend">
+                <!-- The legend -->
+                <div class="legend"><img src="{{ asset('bundles/eieinstitut/images/icons/finefiles/32/rtf.png')}}" width="16" height="16"> Notes</div>
+
+                <div class="task-description">
+                    <form class="block-content form" id="table_form" method="post" action="{{ path('preconiser_ressource',{'fiche':fiche.id}) }}">
+                        Vous estimez que cette ressource est bien pour : </br>
+                        <dl></br>
+                            <div class="grid_6">
+                                {% for Critere in Criteres %}
+                                <dt class=""><span class="number">{{ loop.index }}</span> {{ Critere.libelle }}</dt>
+                                <dd></br>
+                                    <ul class="checkable-list">
+
+                                        {% for Note in Notes %}
+                                             <li>
+                                                 <input type="radio" name="radio{{Critere.id}}" id="radio-{{Note.id}}" value="{{Note.id}}">&nbsp;<label for="radio-{{Note.id}}">{{ Note.libelle }}</label>
+                                             </li>
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                                </br>
+                                {% endfor %}
+
+                                <!--<dt class="opened"><span class="number">2</span> préparer ses travaux dirigés</dt>
+                                <dd ></br>
+                                    <ul class="checkable-list">
+                                        <li><input type="radio" name="radio2" id="simple-radio-1" value="1">&nbsp;<label for="simple-radio-1">Avis réservé</label></li>
+                                        <li><input type="radio" name="radio2" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2">Suggéré</label></li>
+                                        <li><input type="radio" name="radio2" id="simple-radio-2" value="2">&nbsp;<label for="simple-radio-2">Très fortement conseillée</label></li>
+                                    </ul>
+                                </dd></br>-->
+                            </div>
+                        </dl>
+                        <div class="clear"></div>
+                        <button class="float-right" name="preconiser" type="submit">Préconiser</button>
+                    </form>
+                </div>	
+            </div>
+        </div>
+    </div>
+</section>
+
+  {% endblock %}

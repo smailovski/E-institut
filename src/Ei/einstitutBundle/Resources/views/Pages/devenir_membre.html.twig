@@ -1,0 +1,40 @@
+{# empty Twig template #}
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}
+
+<section class="grid_2"></section>
+<section class="grid_8">
+			<div class="block-border"><form class="block-content form" id="simple_form" method="post" action="">
+				<h1>Devenir membre du réseau Ramses</h1>
+				
+				<fieldset class="grey-bg required">
+					
+					<p>
+						<label for="simple-select">Votre demande concerne</label>
+							<select name="simple-select" id="simple-select" class="full-width">
+								<option value="1">Aide</option>
+								<option value="2">Renseignement</option>
+								<option value="3">Option 3</option>	
+							</select>
+						<label for="simple-required">Nom</label>
+						<input type="text" name="simple-required" id="simple-required" value="" class="full-width">
+						<label for="simple-required">Prénom</label>
+						<input type="text" name="simple-required" id="simple-required" value="" class="full-width">
+						<label for="simple-required">Objet</label>
+						<input type="text" name="simple-required" id="simple-required" value="" class="full-width">
+						<label for="simple-required">Email</label>
+						<input type="text" name="simple-required" id="simple-required" value="" class="full-width">
+						<label for="simple-required">Message</label>
+						<textarea name="ameliorer" id="ameliorer" rows="10" cols="142">  
+					    </textarea>  
+					    <br>
+						<button type="button">Envoyer</button>
+					</p>
+	
+				</fieldset>
+			</div>
+		</section>
+    
+{% endblock %}

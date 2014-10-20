@@ -1,0 +1,18 @@
+Utilisateurs:
+    pattern:  /utilisateurs
+    defaults: { _controller: EieinstitutBundle:Admin:utilisateurs }
+    
+    
+new_utilisateur:
+    pattern:  /new_utilisateur/{id}
+    defaults: { _controller: EieinstitutBundle:Admin:gerer_utilisateur }
+
+modifier_utilisateur:
+    pattern:  /modifier_utilisateur/{id}
+    defaults: { _controller: EieinstitutBundle:Admin:gerer_utilisateur }
+#    requirements: { _method: post }
+
+supprimer_utilisateur:
+    pattern:  /supprimer_utilisateur
+    defaults: { _controller: EieinstitutBundle:Admin:supprimer_utilisateur }
+   

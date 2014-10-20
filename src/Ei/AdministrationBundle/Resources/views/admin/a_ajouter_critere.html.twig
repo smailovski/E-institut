@@ -1,0 +1,107 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Ajouter Page
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+  
+<section class="grid_9">			   	
+{% if action == "critere"  %}
+        <div class="block-border"> 
+            <div class="block-content"> <h1>Ajouter le critere</h1>								
+                <div class="block-border" id="status-bar">				
+		<a href="{{ path('ei_administration_preconisation') }}" class="button" title=""> <strong>Toutes les criteres</strong></a>
+			
+		<span class="float-left">Ajouter critere</span>
+                </div>
+            </div>
+                
+	<br><br>
+        
+        <div class="block-content">
+                               
+			<form class="block-content form" id="simple_form" method="post" action="{{ path('ei_administration_ajouter_preconisation',{'id':'critere'})}}">
+				{% set libelle = '' %}                             
+				<div class="columns">
+				
+							<p class="colx2-left">
+								   									
+								<span class="label required">
+									Critere
+								</span>
+									<input type="text" name="libelle" id="complex-fr-subtitle" value="" class="label">
+							<br><br>
+	
+							</p>                                                   
+						</div>																											
+										
+						<br><br>
+									
+					<div class="float-right"><br>
+                                                <a href="{{ path('ei_administration_preconisation') }}"> <button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button></a>
+						<button type="submit" name="btn_save"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>					
+					</div>
+				
+			</form>
+			</div>         
+			</div>	
+        {% endif %}
+        
+{% if action == "note"  %}
+        <div class="block-border"> 
+            <div class="block-content"> <h1>Ajouter le note</h1>								
+                <div class="block-border" id="status-bar">				
+		<a href="{{ path('ei_administration_preconisation') }}" class="button" title=""> <strong>Toutes les notes</strong></a>
+			
+		<span class="float-left">Ajouter note</span>
+                </div>
+            </div>
+                
+	<br><br>
+        
+        <div class="block-content">
+                               
+			<form class="block-content form" id="simple_form" method="post" action="{{ path('ei_administration_ajouter_preconisation',{'id':'note'})}}">
+				{% set libelle = '' %}   
+                                {% set annotation = '' %}    
+				<div class="columns">
+				
+							<p class="colx2-left">
+								   									
+								<span class="label required">
+									Libelle
+								</span>
+									<input type="text" name="libelle" id="complex-fr-subtitle" value="" class="label">
+							<br><br>
+                                                                <span class="label required">
+									Annotation
+								</span>
+									<input type="text" name="annotation" id="complex-fr-subtitle" value="" class="label">
+							</p>                                                   
+						</div>																											
+										
+						<br><br>
+									
+					<div class="float-right"><br>
+                                                <a href="{{ path('ei_administration_preconisation') }}"> <button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button></a>
+						<button type="submit" name="btn_save"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>					
+					</div>
+				
+			</form>
+			</div>         
+			</div>	
+        {% endif %}        
+		<div class="clear"></div>								
+
+								
+</section>		               
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

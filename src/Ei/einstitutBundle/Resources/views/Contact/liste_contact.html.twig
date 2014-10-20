@@ -1,0 +1,145 @@
+{% extends "EieinstitutBundle::Sub-Master-Left.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Annuaire
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+{% block Sub_Content %}
+    <section class="grid_9">
+
+			<div class="block-border"><form class="block-content form" name="table_form" id="table_form" method="post" action="">
+				<h1>
+					Mes contacts
+					<a href="{{path('demande_contact')}}"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/plus-circle-blue.png') }}" width="16" height="16"> Ajouter contact</a>
+				</h1>
+                                        
+                                     
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li><a href="#" title="Previous"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png') }}" width="16" height="16"> Préc.</a></li>
+						<li><a href="#" title="Page 1" class="current"><b>1</b></a></li>
+						<li><a href="#" title="Page 2"><b>2</b></a></li>
+						<li><a href="#" title="Page 3"><b>3</b></a></li>
+						<li><a href="#" title="Page 4"><b>4</b></a></li>
+						<li><a href="#" title="Page 5"><b>5</b></a></li>
+						<li><a href="#" title="Next">Suiv. <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png') }}" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li><a href="#"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-circle.png') }}" width="16" height="16"></a></li>
+					</ul>
+					
+				</div>
+				
+				<div class="with-head no-margin">
+					
+					<div class="head">
+						<div class="black-cell with-gap"><span class="success"></span></div>
+						<div class="black-cell">Sort by</div>
+						<div>
+							<span class="column-sort">
+								<a href="#" title="Sort up" class="sort-up active"></a>
+								<a href="#" title="Sort down" class="sort-down"></a>
+							</span>
+							Nom
+						</div>
+						<div>
+							<span class="column-sort">
+								<a href="#" title="Sort up" class="sort-up"></a>
+								<a href="#" title="Sort down" class="sort-down"></a>
+							</span>
+							Sexe
+						</div>
+						
+					</div>
+					
+					<ul class="grid dark-grey-gradient">
+						{% for Contact in Contacts %}    
+                                                
+                                        
+                                         
+						<li>
+							<div class="grid-picto user">
+								<small>Administrator</small>
+								<p class="grid-name">{{ Contact.contact_user2.nom }} {{ Contact.contact_user2.prenom }}</p>
+								<p class="grid-details">Age: <b>28</b><br>
+								Gender: <b>male</b><br>
+								Country: <b>USA</b></p>
+							</div>
+                                                         {% set contact=Contact.contact_user2.username %}
+							<ul class="grid-actions">
+								<li><a href="{{ path('profile_contact',{'profile':  Contact.contact_user2.id  }) }}" name="profil"  title="Voire profil" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png') }}" width="16" height="16"></a></li>
+								<li><a onclick="SupprimerContact({{ Contact.id }})" title="Supprimer" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"></a></li>
+								<li><input title="Blocké" class="with-tip" type="checkbox" name="selected[]" id="grid-selected-1" value="1"></li>
+							</ul>
+						</li>
+                                               
+						{% endfor %} 
+						
+						
+					</ul>
+				</div>
+				
+				<ul class="message no-margin">
+					<li>Results 1 - 10 out of 47</li>
+				</ul>
+				
+				<div class="block-footer">
+					
+					
+					<img src="{{ asset('bundles/eieinstitut/') }}images/icons/fugue/arrow-curve-000-left.png" width="16" height="16" class="picto"> 
+					<a href="#" class="button">Sélectionner tout</a> 
+					<a href="#" class="button">Désélectionner tout</a>
+					<span class="sep"></span>
+					<select name="table-action" id="table-action" class="small">
+						<option value="">Action pour la sélection...</option>
+						<option value="validate">Validate</option>
+						<option value="Supprimer">Supprimer</option>
+					</select>
+					<button type="submit" class="small">Ok</button>
+				</div>
+					
+			</form></div>
+
+    </section>
+{% endblock %}
+{% block javascripts_Bottom %}
+    <script>
+    
+    function SupprimerContact(id)
+    {
+        var confirmation=confirm("Voulez-vous supprimer:"+id);
+        if (confirmation){
+            console.log("test supp",id);
+            $.post(
+                    "{{ path('supprimer_contact') }}",
+                    {idContact:id},
+                        function(result){
+                            console.log("bien");
+                            //location.reload();
+                            $('html').load('{{ path('list_contact') }}');
+                            });
+          //action à faire pour la valeur true 
+        }else{
+          //action à faire pour la valeur false
+        }
+    }
+    </script> 
+    
+    
+    <script>
+    
+    
+    </script>
+
+    </script>
+{% endblock %}
+
+

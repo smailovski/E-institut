@@ -1,0 +1,97 @@
+{% extends "EiAdministrationBundle::Master-Base-Contribu.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Ajouter Page
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+<section class="grid_9">			   	
+
+        <div class="block-border"> 
+            <div class="block-content"> <h1>Ajouter la page</h1>								
+                <div class="block-border" id="status-bar">				
+		<a href="javascript:void(0)" class="button" title=""> <strong>Toutes les pages</strong></a>
+			
+		<span class="float-left">Nouvelle page</span>
+                </div>
+            </div>
+                
+	<br><br>
+        
+        <div class="block-content">
+					
+					<form class="block-content form" id="simple_form" method="post" action="#">
+				
+								
+				<div class="columns">
+				
+							<p class="colx2-left">
+								
+								
+							
+								
+								<span class="label required">
+									Titre
+								</span>
+									<input type="text" name="complex-fr-subtitle" id="complex-fr-subtitle" value="" class="full-width">
+							<br><br>
+							<span class="label required">
+									Description
+								</span>
+									<input type="text" name="complex-fr-subtitle" id="complex-fr-subtitle" value="" class="full-width">
+							
+						
+							
+							
+							
+							</p>
+							<p class="colx2-right">
+							<span class="label required">
+									Rubrique
+								</span>
+							
+									<select name="table-action" id="table-action" class="small">
+										<option value="">E-institut</option>
+										<option value="publie">Légales</option>
+										<option value="corbeille">Aide</option>
+									</select>
+								
+								</p>	
+						</div>
+						
+										
+						<span class="label required">
+							Contenu
+						</span>
+						<textarea ></textarea>
+						
+										
+						<br><br>
+									
+					<div class="float-right"><br>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/newspaper.png') }}" width="16" height="16"> Prévisualiser</button>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>
+											
+					</div>
+				
+			</form>
+			</div>
+				
+		
+
+                
+						</div>										
+		<div class="clear"></div>								
+	</div>
+								
+</section>		               
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

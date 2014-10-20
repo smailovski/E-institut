@@ -1,0 +1,82 @@
+{% extends "EiAdministrationBundle::Master-Base-Contribu.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Modifier message
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+<section class="grid_9">
+			
+				
+			<div class="fieldset with-legend grey-bg ">
+				<div class="legend">Messagerie</div>
+					
+			
+			
+			<div class="block-border" id="status-bar">
+	
+		<a href="javascript:void(0)" class="button" title=""> <strong>Ma messagerie</strong></a>
+			
+			<span class="float-left">Modifier message</span>
+	
+	</div>
+			
+	
+	<br><br>
+					
+					<form class="block-content form" id="simple_form" method="post" action="#">
+				
+				
+						
+						 
+					<span class="label required">
+											A
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="nom"> <br><br>
+   
+			<span class="label required">
+											Objet
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="nom"> <br><br>
+   
+   
+   
+   <span class="label required">
+											Message
+										</span>
+ 
+   <textarea id="editable" class="full-width" rows="10" cols="7" name="description">At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies. 
+
+										</textarea><br><br>
+   
+  
+  
+
+   	<div class="float-right"><br>
+			<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button>
+			<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Envoyer</button>
+								
+			</div>
+  
+  
+
+				
+			</form>
+			</div>
+				
+		
+		</section>
+    
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

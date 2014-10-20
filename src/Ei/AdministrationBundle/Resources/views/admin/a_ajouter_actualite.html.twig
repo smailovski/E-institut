@@ -1,0 +1,100 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+{% extends "EiAdministrationBundle::Master-Base-Contribu.html.twig" %}
+
+{% block title %}
+     {{ parent() }}   | Ajouter Actualité
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+
+<section class="grid_9">
+			
+				
+			<div class="fieldset with-legend grey-bg ">
+				<div class="legend">Actualités</div>
+					
+			
+			
+			<div class="block-border" id="status-bar">
+	
+		<a href="javascript:void(0)" class="button" title=""> <strong>Toutes les actualités</strong></a>
+			
+			<span class="float-left">Nouvelle actualité</span>
+	
+	</div>
+			
+	
+	<br><br>
+					
+					<form class="block-content form" id="simple_form" method="post" action="{{ path('ajouter_actualite') }}">
+				
+				<div class="columns">
+							<p class="colx2-left">
+								
+								<span class="label required">
+									Titre
+								</span>
+									<input type="text" name="txt_titre" id="complex-fr-subtitle" value="" class="full-width">
+							</p>
+							
+						</div>
+						
+										
+						<span class="label required">
+							Contenu
+						</span>
+						<textarea id="editable" name="contenu"></textarea>
+						<br><br>
+					
+					
+					
+					<!--<p>
+						<span class="label required">
+									Date de publication
+						</span>
+						Du :<span class="input-type-text margin-right relative"><input type="text" name="date_debut" id="simple-calendar" value="" class="datepicker hasDatepick"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/calendar-month.png') }}" width="16" height="16" id="datepicker"></span>
+						Au :<span class="input-type-text margin-right relative"><input type="text" name="date_fin" id="simple-calendar" value="" class="datepicker hasDatepick"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/calendar-month.png') }}" width="16" height="16"></span>
+						
+					</p>-->
+                                        
+                                        <p>
+                                            <span class="label required">
+						URL d'image :
+					     </span>
+						
+					<input type="text" name="txt_url" id="complex-fr-subtitle" value="" class="full-width">
+						
+						
+					</p>
+					
+					<div class="float-right"><br>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/newspaper.png') }}" width="16" height="16"> Prévisualiser</button>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button>
+						<button type="submit"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>
+											
+					</div>
+				
+			</form>
+			</div>
+				
+		
+		</section>     
+{% endblock %}
+{% block javascripts_Bottom %}
+     
+     <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+     <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+  
+{% endblock %} 

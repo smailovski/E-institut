@@ -1,0 +1,227 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+{% block title %}
+     inscription | {{ parent() }}   
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% block content %}
+<section class="grid_3"></section>    
+<section class="grid_6">
+    <div class="block-border">
+        <div class="block-content">
+            <div class="block-controls">
+                <h1>Inscription </h1><br><br>
+            </div>
+
+                {% if inscript==-1 %}
+                <div style="text-align: center; color:#ff0000 ; font-size: 15px; font-weight: bold">L'identifiant ou l'email existe</div>
+                <form class="form" id="form1" method="post" action="{{ path('inscription') }}">
+                    <fieldset class="grey-bg">
+                    <legend>Vos informations</legend>
+                    <div class="colx4-left-double required">
+                        <label for="complex-fr-title">Nom</label>
+                        <span class="relative">
+                            <input type="text" name="nom" id="complex-fr-title" value="{{nom}}" class="full-width">
+                           
+                        </span>
+                    </div><br>
+                    <div class="colx4-right-double required">
+                        <label for="complex-fr-title">Prénom</label>
+                        <span class="relative">
+                            <input type="text" name="prenom" id="complex-fr-title" value="{{prenom}}" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Adresse mail</label>
+                        <span class="relative">
+                            <input type="text" name="email" id="complex-fr-title" value="{{email}}" class="full-width">
+                            
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset class="grey-bg">
+                    <legend>Votre compte</legend>
+                    <div class=" required">
+                        <label for="complex-fr-title">Identifiant</label>
+                        <span class="relative">
+                            <input type="text" name="username" id="complex-fr-title" value="{{username}}" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Mot de passe</label>
+                        <span class="relative">
+                            <input type="password" name="password" id="complex-fr-title" value="{{password}}" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Confirmer le mot de passe</label>
+                        <span class="relative">
+                            <input type="password" name="confirmer_password" id="complex-fr-title" value="{{confirmer}}" class="full-width">
+                            
+                        </span>
+                    </div>
+                
+
+<br><br><br>
+                    <input type="checkbox" name="cgenerale" id="simple-checkbox-1" value="{{cogenerale}}">
+                    &nbsp;  <label for="simple-checkbox-1">J'ai lu et j'accepte les <a href="{{ path('Legal_Condition') }}" > Conditions d'utilisations </a></label> <br><br><br>
+                    
+                    
+                    <div class="float-right"><br>
+
+                        <button type="submit" name="btn_valider"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png')}}" width="16" height="16"> S'inscrire</button>
+                    </div>
+                </fieldset>
+                </form>
+                {% endif %}
+                
+                
+                
+          {% if (etat==1) %}
+                <div style="text-align: center; background-color:#55ea55 ; font-size: 15px; font-weight: bold">Votre inscription s'est terminée avec succès <br />
+                     Connectez-vous pour accéder aux différentes fonctionnalités de la plate forme</div>
+              {% elseif etat==-1 %}
+                
+                <div style="text-align: center; color:#ff0000 ; font-size: 15px; font-weight: bold"><h2>Tous les champs sont obligatoires</h2></div>
+                <form class="form" id="form1" method="post" action="{{ path('inscription') }}">
+                    <fieldset class="grey-bg">
+                    <legend>Vos informations</legend>
+                    <div class="colx4-left-double required">
+                        <label for="complex-fr-title">Nom</label>
+                        <span class="relative">
+                            <input type="text" name="nom" id="complex-fr-title" value="{{nom}}" class="full-width">
+                           
+                        </span>
+                    </div><br>
+                    <div class="colx4-right-double required">
+                        <label for="complex-fr-title">Prénom</label>
+                        <span class="relative">
+                            <input type="text" name="prenom" id="complex-fr-title" value="{{prenom}}" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Adresse mail</label>
+                        <span class="relative">
+                            <input type="text" name="email" id="complex-fr-title" value="{{email}}" class="full-width">
+                            
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset class="grey-bg">
+                    <legend>Votre compte</legend>
+                    <div class=" required">
+                        <label for="complex-fr-title">Identifiant</label>
+                        <span class="relative">
+                            <input type="text" name="username" id="complex-fr-title" value="{{username}}" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Mot de passe</label>
+                        <span class="relative">
+                            <input type="password" name="password" id="complex-fr-title" value="{{password}}" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Confirmer le mot de passe</label>
+                        <span class="relative">
+                            <input type="password" name="confirmer_password" id="complex-fr-title" value="{{confirmer}}" class="full-width">
+                            
+                        </span>
+                    </div>
+                
+
+<br><br><br>
+                    <input type="checkbox" name="cgenerale" id="simple-checkbox-1" value="{{cogenerale}}">
+                    &nbsp;  <label for="simple-checkbox-1">J'ai lu et j'accepte les <a href="{{ path('Legal_Condition') }}" > Conditions d'utilisations </a></label> <br><br><br>
+                    
+                    
+                    <div class="float-right"><br>
+
+                        <button type="submit" name="btn_valider"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png')}}" width="16" height="16"> S'inscrire</button>
+                    </div>
+                </fieldset>
+                </form>
+                {% elseif  etat==0%}
+                <form class="form" id="form1" method="post" action="{{ path('inscription') }}">
+                    <fieldset class="grey-bg">
+                    <legend>Vos informations</legend>
+                    <div class="colx4-left-double required">
+                        <label for="complex-fr-title">Nom</label>
+                        <span class="relative">
+                            <input type="text" name="nom" id="complex-fr-title" value="" class="full-width">
+                           
+                        </span>
+                    </div><br>
+                    <div class="colx4-right-double required">
+                        <label for="complex-fr-title">Prénom</label>
+                        <span class="relative">
+                            <input type="text" name="prenom" id="complex-fr-title" value="" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Adresse mail</label>
+                        <span class="relative">
+                            <input type="text" name="email" id="complex-fr-title" value="" class="full-width">
+                            
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset class="grey-bg">
+                    <legend>Votre compte</legend>
+                    <div class=" required">
+                        <label for="complex-fr-title">Identifiant</label>
+                        <span class="relative">
+                            <input type="text" name="username" id="complex-fr-title" value="" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Mot de passe</label>
+                        <span class="relative">
+                            <input type="password" name="password" id="complex-fr-title" value="" class="full-width">
+                            
+                        </span>
+                    </div><br>
+                    <div class=" required">
+                        <label for="complex-fr-title">Confirmer le mot de passe</label>
+                        <span class="relative">
+                            <input type="password" name="confirmer_password" id="complex-fr-title" value="" class="full-width">
+                            
+                        </span>
+                    </div>
+                
+
+<br><br><br>
+                    <input type="checkbox" name="cgenerale" id="simple-checkbox-1" value="1">
+                    &nbsp;  <label for="simple-checkbox-1">J'ai lu et j'accepte les <a href="{{ path('Legal_Condition') }}" > Conditions d'utilisations </a></label> <br><br><br>
+                    
+                    
+                    <div class="float-right"><br>
+
+                        <button type="submit" name="btn_valider"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png')}}" width="16" height="16"> S'inscrire</button>
+                    </div>
+                </fieldset>
+                </form>
+            {% endif %}    
+        </div>	
+    </div>				
+</section>
+<section class="grid_3"></section>    
+{% endblock %}
+
+{% block javascripts_Bottom %}
+
+{% endblock %}

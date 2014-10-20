@@ -1,0 +1,66 @@
+{# empty Twig template #}
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}
+
+<section class="grid_3"> </section>
+				<section class="grid_6">
+					<div class="block-border">
+			    	<div class="block-content">
+
+			      
+					<div class="block-controls">
+								<h1>Inscription </h1>  <br><br>
+								
+					</div>
+						<form class="form" id="tab-stats" method="post" action="">
+							<fieldset class="grey-bg">
+							
+								<!--<legend><a href="#">Recherche avancée</legend>-->
+										<span >
+											<b>Nom </b>
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="nom"></input> <br><br>
+										<span >
+											<b>Prénom</b>
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="prenom"></input> <br><br>
+										<span >
+											<b> Email </b>
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="email"></input> <br><br>
+									<span >
+											<b> Login </b>
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="login"></input> <br>
+						
+							</fieldset>
+							
+							<fieldset class="grey-bg with-legend">
+								
+										<span>
+											<b> Mot de Passe </b>
+										</span>
+								
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="pwd"></input> <br><br>
+										<span>
+											<b>Saisir à nouveau </b>
+										</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="nouveau_pwd"></input> <br><br>
+								
+								<div id="captcha"> <img src="{{ asset('bundles/eieinstitut/images/captcha.jpg') }}"> </div>
+
+						<div class="float-right"><br>
+								
+								<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button>
+								<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>
+						</div>
+							</fieldset>
+						</form>		
+					</div>
+				</div>
+					
+				</section>
+    
+{% endblock %}

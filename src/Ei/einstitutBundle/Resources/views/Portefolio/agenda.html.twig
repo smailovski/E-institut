@@ -1,0 +1,235 @@
+{% extends "EieinstitutBundle::Sub-Master-Left.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Agenda
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+{% block Sub_Content %}
+     
+      
+         
+    <section class="grid_9">
+       
+			<div class="block-border"><div class="block-content">
+				<h1>Agenda</h1>  
+                                <!--
+                                <div id="msg">
+                                    <ul class="message success">
+                                        <li>This is a <strong>success message</strong>, out of any box</li>
+                                        <li class="close-bt"></li>
+                                    </ul>
+                                    <ul class="message error">
+                                        <li>This is a <strong>success message</strong>, out of any box</li>
+                                        <li class="close-bt"></li>
+                                    </ul>
+                                    <ul class="message warning">
+                                        <li>This is a <strong>success message</strong>, out of any box</li>
+                                        <li class="close-bt"></li>
+                                    </ul>
+                                        <ul class="message info">
+                                        <li>This is a <strong>success message</strong>, out of any box</li>
+                                        <li class="close-bt"></li>
+                                    </ul>
+                               </div>
+                                -->
+				{% set _date = "01-"  ~  mois  ~ "-" ~  annee  %}
+                                {% set CurrentDate = _date|date('d-m-Y') %}
+                                {% set c = 0 %}
+                                {% set c2 = 0 %}
+                                {% set FirstDay = 0 %}
+                                {% set LastDay = CurrentDate|date('t') %} 
+                                {% set DayName = CurrentDate|date('l') %}
+                                {% if DayName == 'Sunday' %}
+                                    {% set FirstDay = 0 %}
+                                {% elseif DayName == 'Monday' %}
+                                    {% set FirstDay = 1 %}
+                                {% elseif DayName == 'Tuesday' %}
+                                    {% set FirstDay = 2 %}
+                                {% elseif DayName == 'Wednesday' %}
+                                    {% set FirstDay = 3 %}
+                                {% elseif DayName == 'Thursday' %}
+                                    {% set FirstDay = 4 %}
+                                {% elseif DayName == 'Friday' %}
+                                    {% set FirstDay = 5 %}
+                                {% elseif DayName == 'Saturday' %}
+                                    {% set FirstDay = 6 %}
+                                {% endif %}
+
+                                {% set c3 = LastDay + FirstDay %}
+                                {% set year    = CurrentDate|date('Y') %}
+                                {% set month   = CurrentDate|date('m') %}
+                                {% set day     = CurrentDate|date('d') %}
+                                
+                                {% set day     = CurrentDate|date('d') %}
+                                
+                                
+				<div class="block-controls">
+					<ul class="controls-buttons">
+						<li><a href="#" title="Previous month"><img src="{{ asset('bundles/eieinstitut/') }}images/icons/fugue/navigation-180.png" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li class="controls-block"><strong>Janvier 2014  </strong></li>
+						<li class="sep"></li>
+						<li><a href="#" title="Next month"><img src="{{ asset('bundles/eieinstitut/') }}images/icons/fugue/navigation.png" width="16" height="16"></a></li>
+					</ul>
+				</div>
+				
+				<div class="no-margin">
+					<table cellspacing="0" class="calendar">
+						<thead>
+							<tr>
+								<th scope="col" class="black-cell"><span class="success"></span></th>
+								<th scope="col" class="week-end">Dimanche</th>
+                                                                <th scope="col">Lundi</th>
+								<th scope="col">Mardi</th>
+								<th scope="col">Mercredi</th>
+								<th scope="col">Jeudi</th>
+								<th scope="col">Vendredi</th>
+								<th scope="col" class="week-end">Samedi</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+                                                    {% for i in 1..5 %}
+                                                        <!-- first Day : date('l'),  
+                                                             Last Day  : date('t'), date('z') 
+                                                             Full Date : date('r') -->
+                                                   <tr>
+                                                       <th scope="row">{{ i }}</th>
+                                                       {% for j in 0..6 %}
+                                                            
+                                                            {% set c2 = c2 + 1 %}
+                                                           
+                                                            {% if c2 <= FirstDay %}
+                                                                
+                                                                <td class="week-end other-month">
+                                                                   <span class="day">* </span>
+                                                                </td>
+                                                                
+                                                            {% elseif c2 > FirstDay and c2 <= c3 %}
+                                                                {% set c = c + 1 %}
+                                                                <td>
+                                                                    <a href="#" class="day">{{ c }} </a>
+                                                                   
+                                                                    <a href="#" onclick="AddEvent( {{c}}, {{ month }}, {{ year }}  ); return false;" class="add-event">Add</a>
+                                                                    <ul class="events">
+                                                                        {% for Event in Evenements %}
+                                                                             
+                                                                            {%  if c==Event.datedebut|date('d')  and  month==Event.datedebut|date('m')  and year==Event.datedebut|date('Y') %}
+                                                                                <li><a href="#"><b>{{  Event.datedebut|date('H:i')  }}</b> {{ Event.titre }}</a></li>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    </ul>
+                                                            </td>
+                                                           {% else %}
+                                                                {% set c = 1 %}
+                                                            
+                                                                <td class="week-end other-month">
+									<span class="day">{{ c }} </span>
+								</td>
+                                                           
+                                                           {% endif %}
+								
+                                                        {% endfor %}    
+							</tr> 
+                                                    {% endfor %}
+                                                    
+                                                 
+						</tbody>
+					</table>
+				</div>
+				
+				<ul class="message no-margin">
+					<li>18 events found</li>
+				</ul>
+			
+			</div></div>
+		</section>
+{% endblock %}
+
+{% block javascripts_Bottom %}
+  <script>
+     //login Modal
+		function AddEvent(_day,_month,_year)
+		{
+			$.modal({
+				content: _day + '-' +_month + '-' + _year +
+                                         '<form class="form" id="tab-stats" method="post" action=""><div class="form">'+
+				
+                                        '<fieldset class="grey-bg">'+
+                                            '<legend>Informations de l\'événement</legend>'+
+                                            '<div class="colx4-left-double required">'+
+                                                                    '<label for="complex-fr-title">Titre</label>'+
+                                                                    '<span class="relative">'+
+                                                                    '<input type="text" name="EventTitre" id="EventTitre" value="" class="full-width">'+
+                                                            '<span class="check-ok"></span>'+
+                                                    '</span>'+
+                                            '</div>'+
+                                        '</fieldset>'+
+					'</form>',
+				title: 'Ajouter une événement ',
+				maxWidth: 300,
+				buttons: {
+					'Ajouter': function(win) { 
+					// Action login
+                                        
+                                        console.log("buttons ajouter");
+                                        
+                                       
+                                        
+                                        var date = _day + '-' +_month + '-' + _year;
+                                        
+                                        $.post(
+                                            "{{ path('Ajouter_evenement') }}",
+                                                {param_date : date ,param_Titre :  $('#EventTitre').val() },
+                                                function(message)
+                                                {  
+                                                    $("body").load("{{ path('Navigation_agenda', {'annee': 2014 , 'mois': 1 }) }}");
+                                                  /* console.log("success : " + message );
+                                                    setTimeout(
+						  function() 
+						  {
+						    //do something special
+						    $("body").load("path");
+						  }, 10);*/
+                                                }
+                                        );
+                                        
+                                        
+                                        
+                                    /*var values = $(this).serialize();
+                                       
+                                    $.ajax({
+                                        url: "",
+                                        type: "post",
+                                        data: values,
+                                        success: function(){
+                                            alert("success");
+                                            //$("#result").html('Submitted successfully');
+                                        },
+                                        error:function(){
+                                            alert("failure");
+                                            //$("#result").html('There is error while submit');
+                                        }
+                                    });*/
+                                        
+                                        
+					 },
+					'Fermer': function(win) { win.closeModal(); }
+				}
+			});
+		}
+       </script>
+     
+{% endblock %}
+
+
+
+

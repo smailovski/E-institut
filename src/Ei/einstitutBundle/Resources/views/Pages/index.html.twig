@@ -1,0 +1,484 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+{% block title %}
+Bienvenue ! | {{ parent() }}
+{% endblock %}
+{% block content %}
+
+
+
+
+
+    
+
+     <section class="grid_5">
+         
+         <div class="block-border">
+             
+            
+             
+                       <div class="block-content no-title no-margin">
+                        <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+                            <div data-thumb="{{ asset('bundles/eieinstitut/images/slides/thumbs/slide1-small.jpg')}}" data-src="{{ asset('bundles/eieinstitut/images/slides/slide1.jpg')}}">
+                                <!--<div class="camera_caption fadeFromBottom">
+                                    Camera is a responsive/adaptive slideshow. <em>Try to resize the browser window</em>
+                                </div>-->
+                            </div>
+                            <div data-thumb="{{ asset('bundles/eieinstitut/images/slides/thumbs/slide2-small.jpg')}}" data-src="{{ asset('bundles/eieinstitut/images/slides/slide2.jpg')}}">
+                                <!--<div class="camera_caption fadeFromBottom">
+                                    Camera is a responsive/adaptive slideshow. <em>Try to resize the browser window</em>
+                                </div>-->
+                            </div>
+                            <!--<div data-thumb="{{ asset('bundles/eieinstitut/images/slides/thumbs/leaf.jpg')}}" data-src="{{ asset('bundles/eieinstitut/images/slides/leaf.jpg')}}">
+                                <div class="camera_caption fadeFromBottom">
+                                    It uses a light version of jQuery mobile, <em>navigate the slides by swiping with your fingers</em>
+                                </div>
+                            </div>
+                            <div data-thumb="{{ asset('bundles/eieinstitut/images/slides/thumbs/road.jpg')}}" data-src="{{ asset('bundles/eieinstitut/images/slides/road.jpg')}}">
+                                <div class="camera_caption fadeFromBottom"> <em>It's completely free</em> (even if a donation is appreciated) </div>
+                            </div>
+                            <div data-thumb="{{ asset('bundles/eieinstitut/images/slides/thumbs/sea.jpg')}}" data-src="{{ asset('bundles/eieinstitut/images/slides/sea.jpg')}}">
+                                <div class="camera_caption fadeFromBottom"> 
+                                    Camera slideshow provides many options <em>to customize your project</em> as more as possible
+                                </div>
+                            </div>-->
+                            
+                        </div>
+                        <!-- #camera_wrap_1 -->
+                        
+                        
+                            
+                    
+                        <h3>E- INSTITUT</h3><h4>Espace Numérique Académique Unifié (ENAU)</h4>
+                            
+                        <br>
+                            
+                            <p>E-institut est une initiative du réseau Ramses, le Réseau Africain pour la Mutualisation et le Soutien des pôles d'Excellence Scientifique.
+                                    </p>
+                             <p>Il a vocation à proposer aux établissements d'enseignement supérieur d'Afrique sub-saharienne une plateforme en ligne dédiée à l'éducation, au partage des savoirs et à la scolarité.
+                            </p>
+                        <!-- Tags -->
+                        
+
+                        </div>
+                    </div>
+                        
+ </section>
+
+                  
+
+
+
+    <section class="grid_4">
+        <div class="block-border">
+            <div class="block-content no-title">
+
+
+                <h2>Ressources</h2>
+
+                <!-- With the class no-margin -->
+                <ul class="message no-margin"></ul>
+                <ul class="tabs js-tabs same-height">
+                    <li class="current"><a href="#tab-Dernier">Dérnier</a></li>
+                    <li><a href="#tab-Populaire">Populaire</a></li>
+                    <li><a href="#tab-Recommande">Recommandé</a></li>
+                </ul>
+                <div class="tabs-content">
+                            <div id="tab-Dernier">
+
+									{% for fiche in fiches %}
+
+
+                                <div class="task with-legend">
+                                    <!-- The legend -->
+                                    <div class="legend">
+
+										    {% if fiche.type=='document'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='excel'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-excel.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='video'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-film.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='flash'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-flash-movie.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='image'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-image.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='audio'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-music.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='PDF'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-pdf.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='word'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-word.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='ppt'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-powerpoint.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='zip'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-zipper.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='text'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-text.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='database'  %}
+                                        <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/database.png')}}" width="16" height="16"/> 
+
+												{% endif   %}
+
+										    {{ fiche.type }}
+                                    </div>
+
+                                    <div class="task-description">
+
+                                        <!-- Task-list has special integration of the floating-tags class -->
+                                        <ul class="floating-tags">
+                                            <li class="tag-time">{{ fiche.dateCreation|time_ago_in_words }}</li>
+                                            <li class="tag-user">{{ fiche.user.username }}</li>
+                                        </ul>
+
+                                        <h3>{{ fiche.titre }}</h3>
+										        {{ fiche.resume|slice(0,25) ~ '...' }}
+                                    </div>
+                                    <ul class="mini-menu">
+                                        <li><a href="#" title="Delete"> + Détails<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-000-white.png')}}" width="16" height="16"></a></li>
+                                    </ul>
+                                </div>
+									{% endfor %}
+
+
+
+
+
+
+
+                            </div>
+                            <div id="tab-Populaire">
+								        {% for fiche in fiches %}
+
+
+                                    <div class="task with-legend">
+                                        <!-- The legend -->
+                                        <div class="legend">
+
+										    {% if fiche.type=='document'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='excel'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-excel.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='video'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-film.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='flash'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-flash-movie.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='image'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-image.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='audio'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-music.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='PDF'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-pdf.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='word'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-word.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='ppt'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-powerpoint.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='zip'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-zipper.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='text'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-text.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='database'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/database.png')}}" width="16" height="16"/> 
+
+												{% endif   %}
+
+										    {{ fiche.type }}
+                                        </div>
+
+                                        <div class="task-description">
+
+                                            <!-- Task-list has special integration of the floating-tags class -->
+                                            <ul class="floating-tags">
+                                                <li class="tag-time">{{ fiche.dateCreation|time_ago_in_words }}</li>
+                                                <li class="tag-user">{{ fiche.user.username }}</li>
+                                            </ul>
+
+                                            <h3>{{ fiche.titre }}</h3>
+										        {{ fiche.resume|slice(0,25) ~ '...' }}
+                                        </div>
+                                        <ul class="mini-menu">
+                                            <li><a href="#" title="Delete"> + Détails<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-000-white.png')}}" width="16" height="16"></a></li>
+                                        </ul>
+                                    </div>
+									{% endfor %}
+                                </div>
+                                <div id="tab-Recommande">
+
+
+
+								        {% for fiche in fiches %}
+
+
+                                    <div class="task with-legend">
+                                        <!-- The legend -->
+                                        <div class="legend">
+
+										    {% if fiche.type=='document'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='excel'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-excel.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='video'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-film.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='flash'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-flash-movie.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='image'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-image.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='audio'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-music.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='PDF'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-pdf.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='word'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-word.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='ppt'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-powerpoint.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='zip'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-zipper.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='text'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-text.png')}}" width="16" height="16"/> 
+												{% elseif fiche.type=='database'  %}
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/database.png')}}" width="16" height="16"/> 
+
+												{% endif   %}
+
+										    {{ fiche.type }}
+                                        </div>
+
+                                        <div class="task-description">
+
+                                            <!-- Task-list has special integration of the floating-tags class -->
+                                            <ul class="floating-tags">
+                                                <li class="tag-time">{{ fiche.dateCreation|time_ago_in_words }}</li>
+                                                <li class="tag-user">{{ fiche.user.username }}</li>
+                                            </ul>
+
+                                            <h3>{{ fiche.titre }}</h3>
+										        {{ fiche.resume|slice(0,25) ~ '...' }}
+                                        </div>
+                                        <ul class="mini-menu">
+                                            <li><a href="#" title="Delete"> + Détails<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-000-white.png')}}" width="16" height="16"></a></li>
+                                        </ul>
+                                    </div>
+									{% endfor %}
+                                </div>
+
+                            </div>
+
+
+            </div>
+
+        </div>
+</section> 
+
+<section class="grid_3">
+    <div class="block-border">
+        <div class="block-content no-title">
+
+
+            <h2>Evenements tutoriel en ligne</h2>
+
+            <!-- With the class no-margin -->
+            <ul class="message no-margin"></ul>
+
+            <!-- Note: for tables, a wrapping div is required -->
+            <div class="no-margin">
+                <table cellspacing="0" class="list-calendar">
+                    <tbody>
+
+
+                        <!-- Use the class empty to change visual style -->
+                                                {% set Number    = 0 %}
+                                                {% set year    = 'Now'|date('Y') %}
+                                                {% set month   = 'Now'|date('m') %}
+                                                {% set day     = 'Now'|date('d') %}
+                                                {% set LastDay = 'Now'|date('t') %}
+                                                {% set CalcDay = 0  %}
+                                                {% for i in 1..5 %}
+                        <tr class="empty">
+                                                    {% set CalcDay = day + i - 1  %}
+                                                        {% if CalcDay > LastDay %}
+                                                            {% set CalcDay = CalcDay - LastDay %}
+                                                            {% if CalcDay == 1 %}
+                                                                {% set month = month + 1  %}
+                                                                {% if month == 12 %}
+                                                                    {% set month = 1  %}
+                                                                    {% set year = year + 1 %}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endif %}
+
+
+                                <th scope="row">
+                                                        {% if CalcDay < 10 %}
+                                                            {% set CalcDay = "0"~CalcDay %}
+                                                        {% endif %}
+                                                            {{ CalcDay }}
+                                    </th>
+                                    <td>  
+
+                                                         {% set _date = CalcDay  ~ "-" ~  month  ~ "-" ~  year  %}
+
+                                                        {% if i == 1 %}
+                                        Aujourd'hui
+                                                        {% else %}
+                                                            {{ _date|date('m-Y') }}
+
+                                                        {% endif %}
+
+
+
+                                                      {# Tuto.dateDebut|date("F jS \\a\\t g:ia")#}
+                                        <!-- Full events list -->
+                                        <ul class="events">
+                                                            {% set NumberByDay = 0 %}
+                                                            {% for Tuto in Tutos %}
+
+                                                                {% if _date|date("Y-m-d", "Europe/Paris") == Tuto.dateDebut|date("Y-m-d", "Europe/Paris") %}
+                                                                    {% set colorClass = '' %}
+                                                                    {% if  Tuto.typetutoriel.id == 2 %}
+                                                                        {% set colorClass = 'red' %}
+                                                                    {% endif %}
+                                                <li class="{{ colorClass }}"><a href="#"><b>{{ Tuto.dateDebut|date("H:I", "Europe/Paris") }}</b> {{ Tuto.titre }} </a></li>
+
+                                                                     {% set Number = Number + 1 %}
+                                                                     {% set NumberByDay = Number %}
+                                                                {% endif %}
+
+                                                            {% endfor %}
+
+                                                            {% if NumberByDay == 0 %} 
+                                                <li>Aucune évenement </li>   
+                                                            {% endif %}         
+                                                            {% set NumberByDay = 0 %}
+                                                </ul>
+
+                                                <!--<div class="more-events">
+                                                    3 more events
+                                                    <ul>
+                                                        <li><a href="#"><b>17:00</b> Other Event</a></li>
+                                                         <li><a href="#"><b>17:00</b> Other Event</a></li>
+                                                          <li><a href="#"><b>17:00</b> Other Event</a></li>
+                                                           
+                                                       
+                                                    </ul>
+                                                </div>-->
+
+
+                                            </td>
+                                        </tr>
+
+                                                {% endfor %}
+
+
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- With the class no-margin -->
+                            <ul class="message no-margin">
+                                <li>{{ Number }} evenements exists</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </section> 
+
+
+
+         
+
+            <section class="grid_9">
+                <div class="block-border">
+                    <div class="block-content no-title">
+                        <h2>Actualités</h2>
+                                     {% for actualite in actualites %}
+                        <div class="task with-legend">
+
+                            <!-- The legend -->
+                            <a href="{{ path('detail_actualite',{'actualite':  actualite.id }) }}">
+                                <img style="float: left;margin-right: 5px;" src="{{ asset( actualite.urlimage  )}}" width="100" height="100"  align="absmiddle" /></a>
+                            <a href="{{ path('detail_actualite',{'actualite':  actualite.id }) }}"><h2>{{ actualite.titre }}</h2></a>
+                                                           {{ actualite.contenu|slice(0,250) ~ '...' }}<a href="{{ path('detail_actualite',{'actualite':  actualite.id }) }}">Lire la suite</a>
+                            <p style="text-align:right;">Publié le {{ actualite.dateactualite|date('d/m/Y') }}  par {{ actualite.user.username }}</p>
+                            <div class="clear"></div>
+
+
+
+
+                        </div>
+                               {% endfor %}
+                    </div>
+            </section>		
+
+
+
+
+
+
+
+            <section class="grid_3">
+                <div class="block-border">
+                    <div class="block-content no-title">
+                        <h3>Réseau</h3>
+
+
+                    </div>
+                    
+                    <div class="clear"></div>
+                        
+                    
+                    <div class="block-content no-title">
+                        <h3>Tags</h3>
+                        <!-- Tags -->
+                        <ul class="tags">
+                                            {% for tag in tags %}
+                                <li>{{ tag.libelle }}</li>
+
+					    {% endfor%}
+                            </ul>
+
+                        </div>
+                    </div>
+            </section>    
+            <section class="grid_3 form">
+                <div class="block-border">
+                    <div class="block-content no-title">
+                        <h3>Newsletter</h3>
+                         <p>
+						<label for="simple-calendar">Votre adresse email :</label>
+						<span class="input-type-text margin-right relative">
+                                                    <input type="text" name="simple-calendar" id="simple-calendar" value="" class="datepicker hasDatepick"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/mail.png') }}" width="16" height="16">
+						</span> 
+						<button type="button" class="grey">S'inscrire</button>
+					</p>
+
+                    </div>
+                    </div>
+            </section>   
+
+
+                <div class="clear"></div>
+
+
+
+
+
+{% endblock %}
+
+{% block javascripts_Bottom %}
+                <!-- <script type='text/javascript' src='js/camera.slide/jquery.min.js'></script>-->
+                <script type='text/javascript' src='{{ asset('bundles/eieinstitut/js/camera.slide/jquery.mobile.customized.min.js') }}'></script>
+                <script type='text/javascript' src='{{ asset('bundles/eieinstitut/js/camera.slide/jquery.easing.1.3.js') }}'></script>
+                <script type='text/javascript' src='{{ asset('bundles/eieinstitut/js/camera.slide/camera.min.js') }}'></script>
+                <script>
+                    jQuery(function() {
+                        jQuery('#camera_wrap_1').camera({
+                            thumbnails: true
+                        });
+                    });
+                    </script>
+{% endblock %} 
+

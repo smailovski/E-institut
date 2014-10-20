@@ -1,0 +1,42 @@
+AIDE_FAQ:
+    pattern:  /Aide_FAQ
+    defaults: { _controller: EieinstitutBundle:footer:Aide_FAQ }
+    
+AIDE_Charte:
+    pattern:  /Aide_Charte
+    defaults: { _controller: EieinstitutBundle:footer:Aide_Charte }
+
+AIDE_Security:
+    pattern:  /Aide_Security
+    defaults: { _controller: EieinstitutBundle:footer:Aide_Security }
+
+AIDE_Contact:
+    pattern:  /Aide_Contact
+    defaults: { _controller: EieinstitutBundle:footer:Aide_Contact }
+    
+Legal_Condition:
+      pattern:  /Legal_Condition
+      defaults: { _controller: EieinstitutBundle:footer:Legal_Condition }
+      
+Legal_Licence:
+      pattern:  /Legal_Licence
+      defaults: { _controller: EieinstitutBundle:footer:Legal_Licence }
+
+Legal_Mention:
+      pattern:  /Legal_Mention
+      defaults: { _controller: EieinstitutBundle:footer:Legal_Mention }
+      
+Legal_Signaler:
+      pattern:  /Legal_Signaler
+      defaults: { _controller: EieinstitutBundle:footer:Legal_Signaler }      
+
+Legal_Vie_privee:
+      pattern:  /Legal_Vie_privee
+      defaults: { _controller: EieinstitutBundle:footer:Legal_Vie_privee } 
+      
+A_propos:
+      pattern:  /A_propos
+      defaults: { _controller: EieinstitutBundle:footer:A_propos } 
+Concept:
+      pattern:  /Concept
+      defaults: { _controller: EieinstitutBundle:footer:Concept }       

@@ -1,0 +1,82 @@
+{% extends "EiAdministrationBundle::Master-Base-Contribu.html.twig" %}
+
+{% block title %}
+     {{ parent() }}   | Ajouter Image
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+
+<section class="grid_9">
+			
+				
+			<div class="fieldset with-legend grey-bg ">
+				<div class="legend">Diaporama</div>
+					
+			
+			
+			<div class="block-border" id="status-bar">
+	
+		<a href="javascript:void(0)" class="button" title=""> <strong>Toutes les image</strong></a>
+			
+			<span class="float-left">Nouvelle image</span>
+	
+	</div>
+			
+	
+	<br><br>
+					
+					<form class="block-content form" id="simple_form" method="post" action="#">
+				
+				<div class="columns">
+							<p class="colx2-left">
+								
+								<span class="label required">
+									Titre
+								</span>
+									<input type="text" name="complex-fr-subtitle" id="complex-fr-subtitle" value="" class="full-width">
+							</p>
+							<p class="colx2-right">
+								<span class="label required">
+									Description
+								</span>
+									<input type="text" name="complex-fr-subtitle" id="complex-fr-subtitle" value="" class="full-width">
+							</p>	
+						</div>
+						
+						
+						
+						
+						<div>
+						<input type="file" name="piecejointe" id="piecejointe">
+						<button type="button">Télecharger</button>
+						<ul class="files">
+									<li><a href="javascript:void(0)">
+										<span><img src="{{ asset('bundles/eieinstitut/images/demo/files/file1-mini.png') }}" width="64" height="45" class="thumb"></span>
+										Concept car.jpg
+									</a></li>
+									
+								</ul>
+						</div>				
+					
+					
+					<div class="float-right"><br>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>
+											
+					</div>
+				
+			</form>
+			</div>
+				
+		
+		</section>		               
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

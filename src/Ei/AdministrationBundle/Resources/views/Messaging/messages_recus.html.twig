@@ -1,0 +1,164 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+{% block title %}
+       Messages reçu | {{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+{% block content %}
+
+<section class="grid_9">
+    <div class="block-border">
+	<form class="block-content form" id="table_form" method="post" action="">
+            <h1>Messages recus</h1>
+
+
+            
+            
+            
+            <div class="block-controls">
+
+                <ul class="controls-buttons">
+                    <li><a href="#" title="Previous"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png')}}" width="16" height="16"> Prec</a></li>
+                    <li><a href="#" title="Page 1"><b>1</b></a></li>
+                    <li><a href="#" title="Page 2" class="current"><b>2</b></a></li>
+                    <li><a href="#" title="Page 3"><b>3</b></a></li>
+                    <li><a href="#" title="Page 4"><b>4</b></a></li>
+                    <li><a href="#" title="Page 5"><b>5</b></a></li>
+                    <li><a href="#" title="Next">Suiv <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png')}}" width="16" height="16"></a></li>
+                    <li class="sep"></li>
+                    <li><a href="#"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-circle.png')}}" width="16" height="16"></a></li>
+                </ul>
+
+            </div>
+
+            <div class="no-margin"><table class="table" cellspacing="0" width="100%">
+
+                    <thead>
+                        <tr>
+                            <th class="black-cell"><span class="loading"></span></th>
+                             
+                            <th scope="col">
+                                <span class="column-sort">
+                                    <a href="#" title="Sort up" class="sort-up active"></a>
+                                    <a href="#" title="Sort down" class="sort-down"></a>
+                                </span>
+                                De
+                            </th>
+                            <th scope="col"  width="500">Objet</th>
+
+                            <th scope="col">
+                                <span class="column-sort">
+                                    <a href="#" title="Sort up" class="sort-up"></a>
+                                    <a href="#" title="Sort down" class="sort-down"></a>
+                                </span>
+                                Date
+                            </th>
+
+                            <th scope="col" class="table-actions">Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                          {% for message in messagesrecus %}
+                                {% if message.etat==0 %}
+                                 <tr>
+                                     <th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+                                    
+                                     <td><strong>{% for u in message.users %} {{u.nom|upper }} {{ u.prenom|capitalize }} {% endfor %} </strong></td>
+                                     <td><a href="{{ path('details_message',{'message': message.id }) }}"><strong>{{ message.objet}} </strong></a></td>
+
+                                     <td><strong>{{message.dateMessage|time_ago_in_words }}</strong></td>
+
+                                     <td class="table-actions">
+                                         <a  href="{{ path('details_message',{'message': message.id }) }}" title="D&eacutetails" class="with-tip">
+                                         <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/pencil.png')}}" width="16" height="16">
+                                     </a> 
+                                         <a href="#" onclick="ConfirmSupression({{message.id}}); return false;"title="Supprimer" class="with-tip">
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png')}}" width="16" height="16"></a>
+                                     </td>                               
+                                 </tr>
+                                {% elseif message.etat==1%}
+                                  <tr>
+                                     <th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+
+                                    
+                                     <td></td>
+                                     <td><a href="{{ path('details_message',{'message': message.id }) }}">{{ message.objet}} {{ message.id}}</a></td>
+
+                                     <td>{{message.dateMessage|time_ago_in_words }}</td>
+
+                                     <td class="table-actions">
+                                         <a  href="{{ path('details_message',{'message': message.id }) }}" title="D&eacutetails" class="with-tip">
+                                         <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/pencil.png')}}" width="16" height="16">
+                                     </a> 
+                                         <a href="#" onclick="ConfirmSupression({{message.id}}); return false;"title="Supprimer" class="with-tip">
+                                            <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png')}}" width="16" height="16"></a>
+                                     </td>
+                                 </tr>
+
+                                 {% endif %}
+                           {% endfor %} 
+                        
+
+
+                    
+                    </tbody>
+
+                </table></div>
+
+           
+
+         
+
+        </form></div>
+</section> 
+
+
+
+<div class="clear"></div>
+
+<!-- End content -->
+{% endblock %}
+
+{% block javascripts_Bottom %}
+<script type="text/javascript">
+    function ConfirmSupression(id)
+        {
+            $.modal({
+                content: 'Voulez-vous supprimer ce message ?'
+                          ,
+                title: 'Confirmation',
+                maxWidth: 300,
+                buttons: {
+                    'Confirmer': function(win) { 
+                    // Action login
+                   // var idmsg = id;
+                        console.log("Message id :", id);
+                        $.post(
+                                            '{{ path("supprimer_messages") }}',
+                                            {param_idmessage :   id },
+                                                function(message)
+                                                {  
+                                                    console.log("Supprimer");
+                                                    $("body").load("{{ path('Recus') }}");
+                                                 
+                                                }
+                                        );
+
+
+
+                     },
+                    'Fermer': function(win) { win.closeModal(); }
+                }
+            });
+        }
+</script>
+{% endblock %}

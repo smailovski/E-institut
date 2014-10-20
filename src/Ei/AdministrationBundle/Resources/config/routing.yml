@@ -1,0 +1,140 @@
+ei_administration_homepage:
+    pattern:  /admin/index
+    defaults: { _controller: EiAdministrationBundle:Default:index }
+
+ei_administration_page:
+    pattern:  /admin/page
+    defaults: { _controller: EiAdministrationBundle:Default:page } 
+
+new_page:
+    pattern:  /admin/ajoute_page/
+    defaults: { _controller: EiAdministrationBundle:Default:ajoute_page }
+    
+modifier_page:
+    pattern:  /admin/modifier_page/{id}
+    defaults: { _controller: EiAdministrationBundle:Default:modifier_page }
+    
+ei_administration_supprimer_page:
+    pattern:  /admin/supprimer_page/
+    defaults: { _controller: EiAdministrationBundle:Default:supprimer_page}
+    
+ei_administration_ressource:
+    pattern:  /admin/ressources
+    defaults: { _controller: EiAdministrationBundle:Default:ressources }
+    
+ei_administration_ajouter_ressource:
+    pattern:  /admin/ajouter_ressource
+    defaults: { _controller: EiAdministrationBundle:Default:ajouter_ressource}
+    
+ei_administration_supprimer_ressource:
+    pattern:  /admin/supprimer_ressource/
+    defaults: { _controller: EiAdministrationBundle:Default:supprimer_ressource}
+    
+ei_administration_modifier_ressource:
+    pattern:  /admin/modifier_ressource/{id}
+    defaults: { _controller: EiAdministrationBundle:Default:modifier_ressource}
+    
+ei_administration_listeuser:
+    pattern:  /admin/users
+    defaults: { _controller: EiAdministrationBundle:Default:listeuser }
+
+new_utilisateur:
+    pattern:  /admin/new_utilisateur/{id}
+    defaults: { _controller: EiAdministrationBundle:Default:gerer_utilisateur }
+
+modifier_utilisateur:
+    pattern:  /admin/modifier_utilisateur/{id}
+    defaults: { _controller: EiAdministrationBundle:Default:gerer_utilisateur }
+#    requirements: { _method: post }
+
+supprimer_utilisateur:
+    pattern:  /admin/supprimer_utilisateur
+    defaults: { _controller: EiAdministrationBundle:Default:supprimer_utilisateur }
+
+ei_administration_newsletter:
+    pattern:  /admin/newsletter
+    defaults: { _controller: EiAdministrationBundle:Default:newsletter }
+
+
+############## Actualite
+
+ajouter_actualite:
+    pattern:  /admin/ajouter_actualite
+    defaults: { _controller: EiAdministrationBundle:Default:ajouter_actualite}
+    
+liste_actualite:
+    pattern:  /admin/liste_actualite
+    defaults: { _controller: EiAdministrationBundle:Default:liste_actualite}
+
+supprimer_actualite:
+    pattern:  /admin/supprimer_actualite
+    defaults: { _controller: EiAdministrationBundle:Default:supprimer_actualite}
+    
+modifier_actualite:
+    pattern:  /admin/modifier_actualite/{actualite}
+    defaults: { _controller: EiAdministrationBundle:Default:modifier_actualite}
+    
+detail_actualite:
+    pattern:  /admin/detail_actualite/{actualite}
+    defaults: { _controller: EiAdministrationBundle:Default:detail_actualite}
+
+############## preconisation    
+ei_administration_preconisation:
+    pattern:  /admin/preconisation
+    defaults: { _controller: EiAdministrationBundle:Default:preconisation }
+    
+ei_administration_ajouter_preconisation:
+    pattern:  /admin/ajouter_preconisation{id}
+    defaults: { _controller: EiAdministrationBundle:Default:ajouter_preconisation}
+    
+ei_administration_supprimer_preconisation:
+    pattern:  /admin/supprimer_preconisation/
+    defaults: { _controller: EiAdministrationBundle:Default:supprimer_preconisation}
+    
+ei_administration_modifier_preconisation:
+    pattern:  /admin/modifier_preconisation/{id}
+    defaults: { _controller: EiAdministrationBundle:Default:modifier_preconisation}   
+
+ei_administration_modifier_note:
+    pattern:  /admin/modifier_note/{id}
+    defaults: { _controller: EiAdministrationBundle:Default:modifier_note} 
+    
+######messagerie
+
+ei_administration_Recus:
+    pattern:  /admin/messages_recus
+    defaults: { _controller: EiAdministrationBundle:Default:messages_recus}
+
+ei_administration_Envoyes:
+    pattern:  /admin/messages_envoyes
+    defaults: { _controller: EiAdministrationBundle:Default:messages_envoyes}
+
+ei_administration_details_message:
+    pattern:  /admin/details_message/{message}
+    defaults: { _controller: EiAdministrationBundle:Default:details_message }
+
+ei_administration_details_message1:
+    pattern:  /admin/details_message1/{message}
+    defaults: { _controller: EiAdministrationBundle:Default:details_message1 }
+
+ei_administration_Nouveau_message:
+    pattern:  /admin/nouveau_message
+    defaults: { _controller: EiAdministrationBundle:Default:nouveau_message }
+
+ei_administration_Repondre:
+    pattern:  /admin/repondre_message
+    defaults: { _controller: EiAdministrationBundle:Default:repondre_message }
+    
+ei_administration_supprimer_messages:
+    pattern:  /admin/supprimer_messages
+    defaults: { _controller: EiAdministrationBundle:Default:supprimer_messages}
+    
+# Tutoriel En ligne
+
+Ajouter_tuto:
+    pattern:  /admin/ajouter_tuto
+    defaults: { _controller: EiAdministrationBundle:Default:ajouter_tuto }
+
+Liste_tuto:
+    pattern:  /admin/liste_tuto
+    defaults: { _controller: EiAdministrationBundle:Default:liste_tuto }

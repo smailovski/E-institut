@@ -1,0 +1,79 @@
+{# empty Twig template #}
+{% extends "EieinstitutBundle::Sub-Master-Left.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Espace personnel
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block Slide %}
+
+{% endblock %}
+{% block Sub_Content %}
+<section class="grid_9">
+			<div class="block-border"><div class="block-content">
+				<h1>Tableau de bord</h1>
+				
+				<h3>Compte</h3>
+				<ul class="shortcuts-list">
+					
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Profile.png') }}" width="48" height="48"> Mon profil
+					</a></li>
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Bar-Chart.png') }}" width="48" height="48"> Ajenda
+					</a></li>
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Comment.png') }}" width="48" height="48"> Mes contacts
+					</a></li>
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Email.png') }}" width="48" height="48"> Mail
+					</a></li>
+					
+						<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Modify.png') }}" width="48" height="48"> Mon compte
+					</a></li>
+				
+				</ul>
+				
+				<h3>Ressources</h3>
+				<ul class="shortcuts-list">
+				
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Search.png') }}" width="48" height="48"> Rechercher
+					</a></li>
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Add.png') }}" width="48" height="48"> Ajouter une ressource
+					</a></li>
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Info.png') }}" width="48" height="48"> Liste des ressources
+					</a></li>
+				</ul>
+				
+				<h3>Tutoriel</h3>
+				<ul class="shortcuts-list">
+					
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Loading.png') }}" width="48" height="48"> liste des Tuto
+					</a></li>
+					
+					
+					
+					<li><a href="#">
+						<img src="{{ asset('bundles/eieinstitut/images/icons/web-app/48/Picture.png') }}" width="48" height="48"> Resever
+					</a></li>
+					
+					
+					
+				</ul>
+			</div></div>
+		</section>
+{% endblock %}
+
+{% block javascripts_Bottom %}
+
+{% endblock %}

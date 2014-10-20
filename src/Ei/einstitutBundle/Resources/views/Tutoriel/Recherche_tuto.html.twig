@@ -1,0 +1,238 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+{% block title %}
+     {{ parent() }}   | Tutoriels
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+     
+     
+ <section class="grid_9">
+			<div class="block-border">
+			    <div class="block-content">
+
+			<form class="block-content form" id="table_form" method="post" action="">
+				<h1> Rechercher un tutoriel</h1>
+				
+				<div class="columns">
+						<p class="colx2-left">
+							<span class="label required"> Domaine </span>
+					<select class="full-width" name="Domaine" id="stats-sites-0">
+						<option value="0">Informatique</option>
+						<option value="0">Economie</option>
+					</select><br><br>	
+						</p>
+						<p class="colx2-right">
+						
+						<span class="label required"> Théme</span>
+					<select class="full-width" name="theme" id="stats-sites-0">
+						<option value="0">Développemnt</option>
+						<option value="0">Réseau</option>
+					</select><br><br>
+						</p>
+                                                
+
+							<p class="colx2-left">
+									<span class="label required">
+											Tags
+									</span>
+								<input id="complex-fr-subtitle" class="full-width" type="text" value="" name="tags"> <br><br>
+								
+							</p>
+							<p class="colx2-right">
+							<span class="label ">
+										&nbsp;	
+									</span>
+								<button type="button">Recherche</button> <br><br>
+								
+								</p>
+								</div>
+			    <div class="block-content no-title">
+			    	<h3>Tags</h3>
+			    
+					<ul class="tags">
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					    <li>Sea</li>
+					    <li>Fish</li>
+					    <li>Bubble</li>
+					</ul>
+				</div>
+
+				
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li><a href="#" title="Previous"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png') }}" width="16" height="16"> Prec</a></li>
+						<li><a href="#" title="Page 1"><b>1</b></a></li>
+						<li><a href="#" title="Page 2" class="current"><b>2</b></a></li>
+						<li><a href="#" title="Page 3"><b>3</b></a></li>
+						<li><a href="#" title="Page 4"><b>4</b></a></li>
+						<li><a href="#" title="Page 5"><b>5</b></a></li>
+						<li><a href="#" title="Next">Suiv <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png') }}" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li><a href="#"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-circle.png') }}" width="16" height="16"></a></li>
+					</ul>
+					
+				</div>
+                                <div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				
+					<thead>
+						<tr>
+							
+							<th scope="col">
+								
+								Tuteur
+							</th>
+							<th scope="col"  width="500">Sujet</th>
+							<th scope="col"  style="width: 279px;">Tags</th>
+							<th scope="col">
+								
+								Date et heure
+							</th>								
+						</tr>
+					</thead>
+					
+					<tbody>
+						
+					
+						
+						<tr>
+							<th>E-institut</th>
+							<td><strong>Settings</strong><br>
+						<small>System &gt; Settings</small>
+						
+						<a href="#" title="Suivre" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/control.png') }}" width="16" height="16"></a>
+						
+						</td>
+						<td><ul class="keywords">
+								<li><a href="#">Java</a></li>
+								<li class="orange-keyword"><a href="#">J2EE</a></li>
+						</ul></td>	
+						<td>24-03-2010 <br>
+							10h00
+						
+						</td>
+							
+						</tr>
+						
+							<tr>
+							<th>E-institut</th>
+							<td><strong>Settings</strong><br>
+						<small>System &gt; Settings</small>
+						
+						<a href="#" title="Suivre" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/control.png') }}" width="16" height="16"></a>
+						
+						</td>
+						<td><ul class="keywords">
+								<li class="purple-keyword">lol</li>
+								<li>dada</li>
+								<li>toto</li>
+						</ul></td>	
+						<td>24-03-2010 <br>
+							10h00
+						
+						</td>
+							
+						</tr>
+						
+						
+						
+							<tr>
+							<th>E-institut</th>
+							<td><strong>Settings</strong><br>
+						<small>System &gt; Settings</small>
+						
+						<a href="#" title="Suivre" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/control.png') }}" width="16" height="16"></a>
+						
+						</td>
+						<td><ul class="keywords">
+								<li>Sea</li>
+								<li>Fish</li>
+								<li>Bubble</li>
+							</ul></td>	
+						<td>24-03-2010 <br>
+							10h00
+						
+						</td>
+							
+						</tr>
+						
+						
+							<tr>
+							<th>E-institut</th>
+							<td><strong>Settings</strong><br>
+						<small>System &gt; Settings</small>
+						
+						<a href="#" title="Suivre" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/control.png') }}" width="16" height="16"></a>
+						
+						</td>
+						<td><ul class="keywords">
+								<li>Sea</li>
+								<li>Fish</li>
+								<li>Bubble</li>
+							</ul></td>	
+						<td>24-03-2010 <br>
+							10h00
+						
+						</td>
+							
+						</tr>
+						
+						
+						
+						
+					</tbody>
+				
+				</table></div>
+				
+				<ul class="message no-margin">
+					<li>Results 1 - 5 out of 23</li>
+				</ul>
+				
+				
+			</form></div></div>
+</section>
+
+          
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %}     

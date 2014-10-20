@@ -1,0 +1,183 @@
+{% extends "EiAdministrationBundle::Master-Base-Contribu.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Lister Pages
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+
+<section class="grid_9">
+			
+				
+			<div class="fieldset with-legend grey-bg ">
+				<div class="legend">Pages</div>
+					
+			
+			
+			
+			
+			<div class="block-border" id="status-bar">
+	
+		<a href="javascript:void(0)" class="button" title="Ajouter"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/plus-circle.png') }}" width="16" height="16"> <strong>Ajouter</strong></a>
+		
+			
+			<span class="float-left">Toutes les pages</span>
+	
+	</div>
+	
+	
+	<br><br>
+			
+			<div class=""><form class="block-content form" id="table_form" method="post" action="#">
+				
+				
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li><a href="javascript:void(0)" title="Previous"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-180.png') }}" width="16" height="16"> Prev</a></li>
+						<li><a href="javascript:void(0)" title="Page 1"><b>1</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 2" class="current"><b>2</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 3"><b>3</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 4"><b>4</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 5"><b>5</b></a></li>
+						<li><a href="javascript:void(0)" title="Next">Next <img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation.png') }}" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li><a href="javascript:void(0)"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-circle.png') }}" width="16" height="16"></a></li>
+					</ul>
+					
+				</div>
+			
+				<div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				
+					<thead>
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<th scope="col">Statut</th>
+							<th scope="col">
+								<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+								Titre
+							</th>
+							<th scope="col">Description</th>
+							
+							<th scope="col">
+							<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+							Rubrique
+							
+							</th>
+							<th scope="col">
+							<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+							Auteur
+							
+							</th>
+							<th scope="col">Date
+								<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+							</th>
+							<th scope="col" class="table-actions">Actions</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<td>Publié</td>
+							<td>Concept</td>
+							<td> ma  description</td>
+							<td> E-institut</td>
+							<td>Ali</td>
+							<td>02-05-2010</td>
+							
+							<td class="table-actions">
+								<a href="javascript:void(0)" title="Modifier" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/pencil.png') }}" width="16" height="16"></a>
+								<a href="javascript:void(0)" title="Afficher" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png') }}" width="16" height="16"></a>
+								<a href="javascript:void(0)" title="Metttre dans la corbeille" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"></a>
+							</td>
+						</tr>
+						
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<td>Publié</td>
+							<td>Sécurité</td>
+							<td> ma  description</td>
+							<td> Aide</td>
+							<td>Ali</td>
+							<td>02-05-2010</td>
+							
+							<td class="table-actions">
+								<a href="javascript:void(0)" title="Modifier" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/pencil.png') }}" width="16" height="16"></a>
+								<a href="javascript:void(0)" title="Afficher" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png') }}" width="16" height="16"></a>
+								<a href="javascript:void(0)" title="Metttre dans la corbeille" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"></a>
+							</td>
+						</tr>
+						
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<td>Publié</td>
+							<td>Mentions légales</td>
+							<td> ma  description</td>
+							<td> Légal</td>
+							<td>Ali</td>
+							<td>02-05-2010</td>
+							
+							<td class="table-actions">
+								<a href="javascript:void(0)" title="Modifier" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/pencil.png') }}" width="16" height="16"></a>
+								<a href="javascript:void(0)" title="Afficher" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/magnifier.png') }}" width="16" height="16"></a>
+								<a href="javascript:void(0)" title="Metttre dans la corbeille" class="with-tip"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"></a>
+							</td>
+						</tr>
+						
+						
+						
+					</tbody>
+				
+				</table></div>
+				
+				<ul class="message no-margin">
+					<li>Results 1 - 5 out of 23</li>
+				</ul>
+				
+				<div class="block-footer">
+					<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/arrow-curve-000-left.png') }}" width="16" height="16" class="picto">
+					<span class="sep"></span>
+					<select name="table-action" id="table-action" class="small">
+						<option value="">Tout</option>
+						<option value="publie">Publiées</option>
+						<option value="corbeille">Corbeille</option>
+					</select>
+					<button type="submit" class="small">Ok</button>
+				</div>
+					
+			</form></div>
+		
+				
+				
+				
+				
+				
+				
+			
+			</div>
+				
+		
+		</section>    
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

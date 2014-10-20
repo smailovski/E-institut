@@ -1,0 +1,236 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Lister Criteres
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+
+<section class="grid_9">
+			
+				
+			<div class="fieldset with-legend grey-bg ">
+				<div class="legend">Criteres</div>
+		
+			<div class="block-border" id="status-bar">
+	
+		<a href="{{ path('ei_administration_ajouter_preconisation',{'id':'critere'} )}}" class="button" title="Ajouter"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/plus-circle.png') }}" width="16" height="16"> <strong>Ajouter</strong></a>
+		
+			
+			<span class="float-left">Toutes les criteres</span>
+	
+	</div>
+	
+	
+	<br><br>
+			
+			<div class=""><form class="block-content form" id="table_form" method="post" action="#">
+				
+				
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li><a href="javascript:void(0)" title="Previous"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/navigation-180.png') }}" width="16" height="16"> Prev</a></li>
+						<li><a href="javascript:void(0)" title="Page 1"><b>1</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 2" class="current"><b>2</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 3"><b>3</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 4"><b>4</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 5"><b>5</b></a></li>
+						<li><a href="javascript:void(0)" title="Next">Next <img src="{{ asset('bundles/eiadministration/images/icons/fugue/navigation.png') }}" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li><a href="javascript:void(0)"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/arrow-circle.png') }}" width="16" height="16"></a></li>
+					</ul>
+					
+				</div>
+			
+				<div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				
+					<thead>
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<th scope="col">
+								<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+								Id
+							</th>
+							<th scope="col">Criteres</th>
+						
+							<th scope="col" class="table-actions">Actions</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr>							
+							
+                         {% for ct in criteres %}        
+                                                    <th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+                                                    <td>{{ ct.id }}</td><td>{{ct.libelle}}</td>
+                                                    <td class="table-actions">
+								<a href="{{ path('ei_administration_modifier_preconisation', {'id': ct.id }) }}" title="Modifier" class="with-tip"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/pencil.png') }}" width="16" height="16"></a>
+								<a onclick="SupprimerC({{ ct.id }})" title="Metttre dans la corbeille" class="with-tip"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/cross-circle.png') }}" width="16" height="16"></a>
+                                                    </td>
+						</tr>
+						{% endfor %}
+						
+						
+					</tbody>
+				
+				</table></div>
+				
+				<ul class="message no-margin">
+					<li>Results 1 - 5 out of 23</li>
+				</ul>
+				
+				<div class="block-footer">
+					<img src="{{ asset('bundles/eiadministration/images/icons/fugue/arrow-curve-000-left.png') }}" width="16" height="16" class="picto">
+					<span class="sep"></span>
+					<select name="table-action" id="table-action" class="small">
+						<option value="">Tout</option>
+						<option value="publie">Publiées</option>
+						<option value="corbeille">Corbeille</option>
+					</select>
+					<button type="submit" class="small">Ok</button>
+				</div>
+					
+			</form></div>
+		
+				
+				
+				
+				
+				
+				
+			
+			</div>
+			
+    <div class="fieldset with-legend grey-bg ">
+				<div class="legend">Notes</div>
+		
+			<div class="block-border" id="status-bar">
+	
+		<a href="{{ path('ei_administration_ajouter_preconisation',{'id':'note'}) }}" class="button" title="Ajouter"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/plus-circle.png') }}" width="16" height="16"> <strong>Ajouter</strong></a>
+		
+			
+			<span class="float-left">Toutes les notes</span>
+	
+	</div>
+	
+	
+	<br><br>
+			
+			<div class=""><form class="block-content form" id="table_form" method="post" action="#">
+				
+				
+				<div class="block-controls">
+					
+					<ul class="controls-buttons">
+						<li><a href="javascript:void(0)" title="Previous"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/navigation-180.png') }}" width="16" height="16"> Prev</a></li>
+						<li><a href="javascript:void(0)" title="Page 1"><b>1</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 2" class="current"><b>2</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 3"><b>3</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 4"><b>4</b></a></li>
+						<li><a href="javascript:void(0)" title="Page 5"><b>5</b></a></li>
+						<li><a href="javascript:void(0)" title="Next">Next <img src="{{ asset('bundles/eiadministration/images/icons/fugue/navigation.png') }}" width="16" height="16"></a></li>
+						<li class="sep"></li>
+						<li><a href="javascript:void(0)"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/arrow-circle.png') }}" width="16" height="16"></a></li>
+					</ul>
+					
+				</div>
+			
+				<div class="no-margin"><table class="table" cellspacing="0" width="100%">
+				
+					<thead>
+						<tr>
+							<th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+							<th scope="col">
+								<span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+								Id
+							</th>
+							<th scope="col">Libelle</th>
+                                                        <th scope="col">
+                                                            <span class="column-sort">
+									<a href="" title="Sort up" class="sort-up"></a>
+									<a href="" title="Sort down" class="sort-down"></a>
+								</span>
+                                                            Annotation</th>
+							<th scope="col" class="table-actions">Actions</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr>							
+							
+                         {% for nt in notes %}        
+                                                    <th scope="row" class="table-check-cell"><input type="checkbox" name="selected[]" id="table-selected-1" value="1"></th>
+                                                    <td>{{ nt.id }}</td><td>{{nt.libelle}}</td><td>{{nt.annotation}}</td>
+                                                    <td class="table-actions">
+								<a href="{{ path('ei_administration_modifier_note', {'id': nt.id }) }}" title="Modifier" class="with-tip"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/pencil.png') }}" width="16" height="16"></a>
+								<a onclick="SupprimerN({{ nt.id }})" title="Metttre dans la corbeille" class="with-tip"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/cross-circle.png') }}" width="16" height="16"></a>
+                                                    </td>
+						</tr>
+						{% endfor %}
+						
+						
+					</tbody>
+				
+				</table></div>
+				
+				<ul class="message no-margin">
+					<li>Results 1 - 5 out of 23</li>
+				</ul>
+				
+				<div class="block-footer">
+					<img src="{{ asset('bundles/eiadministration/images/icons/fugue/arrow-curve-000-left.png') }}" width="16" height="16" class="picto">
+					<span class="sep"></span>
+					<select name="table-action" id="table-action" class="small">
+						<option value="">Tout</option>
+						<option value="publie">Publiées</option>
+						<option value="corbeille">Corbeille</option>
+					</select>
+					<button type="submit" class="small">Ok</button>
+				</div>
+					
+			</form></div>
+		
+				
+				
+				
+				
+				
+				
+			
+			</div>
+		
+		</section>    
+{% endblock %}
+{% block javascripts_Bottom %}
+<script>
+    
+    function SupprimerC(id) 
+    { 
+        var confirmation=confirm("Voulez-vous supprimer Critere:"+id);
+        if (confirmation){
+             console.log("test supp",id);
+             $.post("{{ path('ei_administration_supprimer_preconisation') }}",{idCritere:id},function(result){$('html').load('{{ path('ei_administration_preconisation') }}');});
+                         }
+    }
+    function SupprimerN(id) 
+    { 
+        var confirmation=confirm("Voulez-vous supprimer Note:"+id);
+        if (confirmation){
+             console.log("test supp",id);
+             $.post("{{ path('ei_administration_supprimer_preconisation') }}",{idNote:id},function(result){$('html').load('{{ path('ei_administration_preconisation') }}');});
+                         }
+    }
+    </script> 
+{% endblock %} 

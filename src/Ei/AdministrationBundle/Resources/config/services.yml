@@ -1,0 +1,7 @@
+parameters:
+#    ei_administration.example.class: Ei\AdministrationBundle\Example
+
+services:
+#    ei_administration.example:
+#        class: %ei_administration.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

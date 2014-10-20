@@ -1,0 +1,72 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+{% block title %}
+     {{ parent() }}   | Forum
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+
+
+
+<section class="grid_9">
+    <div id="content" class="block-border">
+        <div class="block-content upper-index">
+            <div class="h1 with-menu">
+                <h1>Content blocks</h1>
+                <div class="menu">
+
+
+                    <img src="{{ asset('bundles/eieinstitut/images/menu-open-arrow.png') }}" height="16" width="16">
+
+                    <ul>
+                        {% for Rubrique in Rubriques %}
+                            <li class="icon_down"><a href="#step0">{{ Rubrique.libelle }}</a></li>
+                        {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+{% for Rubrique in Rubriques %}
+                <div class="block-content no-title">
+
+                    <h2 id="step0">
+                    {{ Rubrique.libelle }} <br>
+                            <small> {{ Rubrique.description }}</small>
+                        </h2>
+
+                        <ul class="small-files-list icon-html">
+
+                         {% for Forum in Forums %}
+                            {% if Forum.forumrubrique.id == Rubrique.id %}
+                            <li> 
+                                <strong>{{ Forum.titre }} </strong> {{ Forum.forumuser.username }}<br>
+                                <small> {{ Forum.dateCreation|date('d-m-Y') }}</small>
+                            </li> 
+                            {% endif %}
+                        {% else %}
+                            <li> 
+                                Aucune discution
+                            </li> 
+                        {% endfor %}
+
+                        </ul>
+
+                    </div>
+ {% endfor %}
+
+                </div>
+            </section>
+
+
+
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %}

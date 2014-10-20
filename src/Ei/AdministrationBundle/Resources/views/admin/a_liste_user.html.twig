@@ -1,0 +1,122 @@
+{% extends "EiAdministrationBundle::Master-Base-admin.html.twig" %}
+{% block title %}
+        Lister users | {{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+	     
+<section class="grid_9">
+			<div class="block-border"><form class="block-content form" id="table_form" method="post" action="">
+				<h1>Liste Users<a href="{{ path('new_utilisateur', {'id':'add'}) }}"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/plus-circle-blue.png') }}" width="16" height="16">Ajouter</a></h1>
+				
+				<table class="table sortable no-margin" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th class="black-cell"></th>
+							<th scope="col">
+								<span class="column-sort">
+									<a href="#" title="Sort up" class="sort-up"></a>
+									<a href="#" title="Sort down" class="sort-down"></a>
+								</span>
+								Login
+							</th>
+							<th scope="col">Email</th>
+							<th scope="col">
+								Nom et Prénom
+							</th>
+							<th scope="col">
+								<span class="column-sort">
+									<a href="#" title="Sort up" class="sort-up"></a>
+									<a href="#" title="Sort down" class="sort-down"></a>
+								</span>
+								Rôle
+							</th>
+							<th scope="col">
+								<span class="column-sort">
+									<a href="#" title="Sort up" class="sort-up"></a>
+									<a href="#" title="Sort down" class="sort-down"></a>
+								</span>
+								Dernière visite
+							</th>
+							<th scope="col" class="table-actions">Actions</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						
+			{% for user in Users %} 
+                                            <tr>
+                                            <td class="th table-check-cell">
+							<input type="checkbox" name="selected[]" id="table-selected-1" value="1"></td>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.nom }} {{ user.prenom }}</td>
+                                            <td>
+                                                <ul class="keywords">
+                                                {% for role in user.roles %}
+                                                <li class="orange-keyword"><a href="#">{{ role }}</a></li>
+							
+                                                {% endfor %}
+                                                        </ul>
+                                                </td>
+                                            <td>{{user.lastlogin|time_ago_in_words}}</td>
+                                            <td class="table-actions">
+							<a href="{{ path('modifier_utilisateur', {'id': user.id }) }}" title="Edit" class="with-tip"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/pencil.png') }}" width="16" height="16"></a>
+                                                        <a onclick="DeleteUser( {{ user.id }} ); return false;"  title="Delete" class="with-tip"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/cross-circle.png') }}" width="16" height="16"></a>
+                                            </td>
+                                            </tr>     
+                         {% endfor %}                   
+																						
+						
+					</tbody>
+				
+				</table>
+					
+			</form></div>
+		</section>		               
+{% endblock %}
+{% block javascripts_Bottom %}
+<script>
+    
+    //Delete Modal
+            function DeleteUser(id)
+            {
+                    $.modal({
+                            content: 'Voulez-vous supprimer cet utilisateur ?'
+                                              ,
+                            title: 'Confirmation',
+                            maxWidth: 300,
+                            buttons: {
+                                    'Confirmer': function(win) 
+                                    { 
+                                       console.log("Entrer ");
+                                    // Action 
+                                    $.post(
+                                           "{{ path('supprimer_utilisateur') }}",
+                                               {param_id : id  },
+                                               function(message)
+                                               {  
+                                                  console.log("Retourner ");
+                                                  $("body").load("{{ path('ei_administration_listeuser') }}");
+                                                  console.log("success ");
+                                               }
+                                       );
+                                    
+                                    
+                                     },
+                                    'Annuler': function(win) { win.closeModal(); }
+                            }
+                    });
+            }
+    
+  
+ 
+            
+         </script>
+{% endblock %} 

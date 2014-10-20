@@ -1,0 +1,31 @@
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+{% block content %}
+    <!--section detail-->	
+        <section class="grid_9">
+			<div class="block-border">
+			    <div class="block-content no-title">
+                                     <h2>Actualités</h2>
+                                     {% for actualite in actualites %}
+			    	<div class="task with-legend">
+     
+							    <!-- The legend -->
+							   <a href="{{ path('detail_actualite',{'actualite':  actualite.id }) }}">
+                                                            <img style="float: left;margin-right: 5px;" src="{{ asset( actualite.urlimage  )}}" width="200" height="180"  align="absmiddle" /></a>
+                                                           <a href="{{ path('detail_actualite',{'actualite':  actualite.id }) }}"><h2>{{ actualite.titre }}</h2></a>
+                                                           {{ actualite.contenu|slice(0,250) ~ '...' }}<a href="{{ path('detail_actualite',{'actualite':  actualite.id }) }}">Lire la suite</a>
+                                                           <p style="text-align:right;">Publié le {{ actualite.dateactualite|date('d/m/Y') }}  par {{ actualite.user.username }}</p>
+                                                           <div class="clear"></div>
+                                                           <div class="clear"></div>
+							
+							
+
+					
+				</div>
+                               {% endfor %}
+			</div>
+		</section>	
+
+    <!--fin section lioste des publications -->	
+{% endblock %}

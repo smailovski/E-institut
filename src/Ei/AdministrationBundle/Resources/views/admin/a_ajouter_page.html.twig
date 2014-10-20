@@ -1,0 +1,108 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+{% block title %}
+     {{ parent() }}   | Ajouter Page
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+  
+<section class="grid_9">			   	
+
+        <div class="block-border"> 
+            <div class="block-content"> <h1>Ajouter la page</h1>								
+                <div class="block-border" id="status-bar">				
+		<a href="{{ path('ei_administration_page') }}" class="button" title=""> <strong>Toutes les pages</strong></a>
+			
+		<span class="float-left">Ajouter page</span>
+                </div>
+            </div>
+                
+	<br><br>
+        
+        <div class="block-content">
+                               
+			<form class="block-content form" id="simple_form" method="post" action="{{ path('new_page') }}">
+				{% set etat = '' %}   
+                                {% set titre = '' %}  
+                                {% set description = '' %} 
+                                {% set contenu = '' %} 
+                                {% set rubriquesPage = '' %}                         
+                                {% set dateCreation = '' %}  
+                                
+				<div class="columns">
+				
+							<p class="colx2-left">
+								
+							<span class="label">
+                                    <b>Activé</b>
+                                </span>
+                                 <input type="checkbox" name="etat" id="enabled" value="1" class="mini-switch with-tip" title="Enable/disable switch" checked="checked"/><br>
+								
+							
+								
+								<span class="label required">
+									Titre
+								</span>
+									<input type="text" name="titre" id="complex-fr-subtitle" value="" class="full-width">
+							<br><br>
+							<span class="label required">
+									Description
+								</span>
+									<input type="text" name="description" id="complex-fr-subtitle" value="" class="full-width">
+							
+						
+							
+							
+							
+							</p>
+                                                        <p class="colx2-right">
+							<span class="label required">
+									Rubrique
+								</span>
+							
+									<select name="rubriquesPage" id="table-action" class="small">
+                                                                            {% for RP in RubriquePage%}
+										<option value="{{ RP.id }}">{{ RP.nom }}</option>
+                                                                            {%endfor%}
+									</select>
+								
+								</p>	
+						</div>
+						
+										
+						<span class="label required">
+							Contenu
+						</span>
+						<textarea name="contenu" >
+                                                {{contenu}}
+                                                </textarea>
+						
+										
+						<br><br>
+									
+					<div class="float-right"><br>
+						<button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/newspaper.png') }}" width="16" height="16"> Prévisualiser</button>
+                                                <a href="{{ path('ei_administration_page') }}"> <button type="button"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/cross-circle.png') }}" width="16" height="16"> Annuler</button></a>
+						<button type="submit" name="btn_save"><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tick-circle.png') }}" width="16" height="16"> Enregistrer</button>					
+					</div>
+				
+			</form>
+			</div>
+				
+		
+
+                
+						</div>										
+		<div class="clear"></div>								
+
+								
+</section>		               
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

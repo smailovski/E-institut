@@ -1,0 +1,170 @@
+{% extends "EiAdministrationBundle::Master-Base-Admin.html.twig" %}
+
+{% block title %}
+        Table du board | {{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+{% block content %}
+	     
+
+<section class="grid_9">			   	
+
+        <div class="block-border"> 
+            <div class="block-content"> <h1>Rapport d'activités</h1>	
+					<div id="tab-global" class="tabs-content" style="">
+							
+							<ul class="tabs js-tabs same-height">
+								<li class="current"><a href="#tab-tuto" title="Options">Tuto</a></li>							
+								<li><a href="#tab-preconisations" title="Options">Préconisations</a></li>
+								<li><a href="#tab-user" title="Options">Utilisateurs connectés</a></li>								
+							</ul>
+							
+							<div class="tabs-content">
+    
+								<div id="tab-tuto" style="height: 419px; display: none;">
+									<ul class="extended-list no-margin icon-user">
+										<li>
+											<a href="#">
+												<span class="icon"></span>
+												TD<br>
+												<small>Ce cours est pour les étudiants </small>
+											</a>
+											<ul class="extended-options">
+												<li>
+													Temps: <strong>5/9</strong><br>
+													<span class="progress-bar"><span style="width:56%"></span></span>
+												</li>
+												<li>
+													Participants: <strong>10</strong><br>
+													<img src="{{ asset('bundles/eiadministration/images/icons/fugue/star.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star-half.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star-empty.png') }}" width="16" height="16">
+												</li>
+											</ul>
+										</li>								
+									</ul>
+									<ul class="extended-list no-margin icon-user">
+										<li>
+											<a href="#">
+												<span class="icon"></span>
+												TP<br>
+												<small>Ce cours est pour les étudiants </small>
+											</a>
+											<ul class="extended-options">
+												<li>
+													Temps: <strong>5/9</strong><br>
+													<span class="progress-bar"><span style="width:56%"></span></span>
+												</li>
+												<li>
+													Participants: <strong>10</strong><br>
+													<img src="{{ asset('bundles/eiadministration/images/icons/fugue/star.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star-half.png') }}" width="16" height="16"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/star-empty.png') }}" width="16" height="16">
+												</li>
+											</ul>
+										</li>
+									
+										
+										
+									</ul>
+									
+								</div>
+								
+								<div id="tab-preconisations" style="display: none;">
+                                                    {% for Fiche in Fiches %}
+                                                    {% if Fiche.statut==1  %}
+                                                                    <div class="task with-legend ">
+						
+                                           <!-- The legend -->
+                                                                     <div class="legend">
+												{% if Fiche.type=='Document'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Excel'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-excel.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Vidéo'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-film.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Flash'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-flash-movie.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Image'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-image.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Audio'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-music.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Pdf'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-pdf.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Word'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-word.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='PPT'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-powerpoint.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Zip'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-zipper.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Text'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/document-text.png')}}" width="16" height="16"/> 
+												{% elseif Fiche.type=='Database'  %}
+													<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/database.png')}}" width="16" height="16"/> 
+													
+												{% endif   %}
+                                               {{ Fiche.type }}
+                                           </div>
+
+                                           <div class="task-description">
+
+                                                   <!-- Task-list has special integration of the floating-tags class -->
+
+                                                   <div class="columns">
+                                                            <!--{{ Fiche.DateCreation|date('Y-m-d H:i') }}-->
+                                                           <ul class="floating-tags">
+                                                                   <li class="tag-time">{{ Fiche.DateCreation|time_ago_in_words  }}</li>
+                                                                   <li class="tag-user">{{ Fiche.User.username }}</li>
+                                                                   <li>{{ Fiche.theme }}</li>
+                                                                   <li>{{ Fiche.domaine }}</li>
+                                                           </ul>
+                                                           <h3><a href="#"> {{ Fiche.titre }}</a></h3><br><br>
+                                                           {{ Fiche.resume }}
+                                                   </div> 
+                                                   <div class="columns">
+                                                           <ul class="keywords">
+                                                                  {% for tag in Fiche.fiche_tags %}  <li><img src="{{ asset('bundles/eieinstitut/images/icons/fugue/tag-small.png')}}" width="16" height="16"> {{ tag.libelle }} </li>{% endfor %}
+                                                                  
+                                                           </ul>
+                                                   </div>
+                                           </div>
+                                                   <ul class="mini-menu" style="opacity: 0;">
+                                                           <li><a href="{{ path('detail_ressource',{'fiche': Fiche.id }) }}" title="Detail"> + Détails<img src="{{ asset('bundles/eieinstitut/images/icons/fugue/navigation-000-white.png')}}" width="16" height="16"></a></li>
+                                                   </ul>
+                                           </div>	
+                       {% endif   %}
+					   {% endfor %}
+									
+									
+									
+								</div>
+								
+								<div id="tab-user" style="height: 419px; display: none;">
+								
+										<div id="madiv" style="overflow:auto">
+											
+												<ul class="simple-list">
+													<li><a href="#" title="Voir"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/user.png') }}" height="16" width="16"> &nbsp;&nbsp;&nbsp;Affilié 1 <img src="{{ asset('bundles/eiadministration/images/icons/fugue/status.png') }}" width="16" height="16" align="right"></a></li>
+													<li><a href="#" title="Voir"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/user.png') }}" height="16" width="16"> &nbsp;&nbsp;&nbsp;Affilié 2 <img src="{{ asset('bundles/eiadministration/images/icons/fugue/status-busy.png') }}" width="16" height="16" align="right"></a></li>
+													<li><a href="#" title="Voir"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/user-nude-female.png') }}" height="16" width="16"> &nbsp;&nbsp;&nbsp;Affilié 3 <img src="{{ asset('bundles/eiadministration/images/icons/fugue/status.png') }}" width="16" height="16" align="right"></a></li>
+													<li><a href="#" title="Voir"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/user.png') }}" height="16" width="16"> &nbsp;&nbsp;&nbsp;Affilié 4 <img src="{{ asset('bundles/eiadministration/images/icons/fugue/status-away.png') }}" width="16" height="16" align="right"></a></li>
+													<li><a href="#" title="Voir"><img src="{{ asset('bundles/eiadministration/images/icons/fugue/user-nude-female.png') }}" height="16" width="16"> &nbsp;&nbsp;&nbsp;Affilié 5 <img src="{{ asset('bundles/eiadministration/images/icons/fugue/status.png') }}" width="16" height="16" align="right"></a></li>							
+												</ul>				
+										</div>
+								
+								</div>
+								
+								
+								
+							</div>
+						</div>
+					
+			</div>
+        </div>									
+		</section>		               
+{% endblock %}
+{% block javascripts_Bottom %}
+
+{% endblock %} 

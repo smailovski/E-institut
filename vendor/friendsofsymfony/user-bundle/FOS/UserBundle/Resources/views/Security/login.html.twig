@@ -1,0 +1,120 @@
+
+{% extends "EieinstitutBundle::Master-Base.html.twig" %}
+
+
+
+
+
+
+{% block content %}
+
+
+   
+
+{% if app.user %}
+
+
+
+<section class="grid_12">
+    <div class="block-border">
+        <div class="block-content">
+            <div class="block-controls">
+                <h1>Connexion </h1><br><br>
+            </div>
+            
+            <a href="{{ path('logout') }}" class="button red" title="Déconnexion"><span class="smaller">Déconnexion</span></a>
+             <br>
+        </div>
+     </div>
+</section>
+
+                                
+                                
+{% else %}
+<section class="grid_4"></section>
+		<section class="grid_4">
+			<div class="block-border">
+			    <div class="block-content no-title">
+			    	<h3>Autentification</h3>
+					
+
+				
+
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+<div class="form required">
+    	<div class="columns">
+                <p class="colx-left">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                </p>
+        </div>
+            <div class="columns">
+                            <p class="colx-left">
+                                    <label for="username">Identifiant</label>
+                                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="full-width" />
+
+                                    
+                                    
+                            </p>
+                    </div>
+                    <div class="columns">
+                            <p class="colx-left">
+                                    <label for="_password">Mot de passe</label>
+                                    <input type="password" id="password" name="_password" required="required" class="full-width"/>
+                                    
+                                    
+                            </p>
+                    </div>
+                    <div class="columns">
+                            <p class="colx2-left">
+
+                                    <ul class="simple-list">
+                                        <li><a href="#" title="Mdp">Mot de passe oublié ?</a></li>
+                                    </ul>
+                            
+                            
+                                     <div class="columns">
+     
+                                            <!-- Left column -->
+                                           <div class="colx3-left-double">
+                                                  <p class="one-line-input grey-bg small-margin">
+                                                    <!-- <input type="checkbox" id="remember_me" name="_remember_me" value="on" />-->
+                                                     <label for="remember_me" class="float-left">Maintenir la connexion</label>
+                                                     <input type="checkbox" name="_remember_me" id="remember_me" value="on" class="mini-switch" style="display: none;" checked/>
+                                                    </p>
+                                            </div>
+
+                                            <!-- Right column -->
+                                            <div class="colx3-right">
+                                                <button type="submit" id="_submit" name="_submit" class="grey float-right">Connexion</button>
+                                            </div>
+
+                                        </div>
+                                        <div class="infos">
+                                               
+                                                <p>Vous n’avez pas encore de compte E-institut ?</p>
+                                                 <h3><a href="{{ path('inscription') }}" title="Créer un compte maintenant">Créer un compte maintenant</a></h3>
+                                        </div>
+                            
+                                         
+                                        
+                                        
+                            
+                                  
+                            </p>
+                    </div>
+    </div>
+        
+        
+
+        <div class="clear"></div>
+</form>
+ 
+        </div>
+    </div>
+</section>
+<section class="grid_4"></section>                       
+                                
+ {% endif %}
+
+{% endblock content %}
